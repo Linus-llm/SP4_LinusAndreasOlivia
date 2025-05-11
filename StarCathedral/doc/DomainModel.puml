@@ -7,10 +7,22 @@ class LogIn {
 
 login()
 }
-class Game
+class Game{
++Game()
+#startGame()
+#goCommand()
+-parseCommand()
+#goDirection()
+#getCurrentRoom()
+}
 class Player
 class Inventory
-class Map
+class Map {
+-Room startRoom
+#buildMap()
+#getStartRoom()
+
+}
 class Room {
 -Room forwardRoom
 -Room backwardsRoom
