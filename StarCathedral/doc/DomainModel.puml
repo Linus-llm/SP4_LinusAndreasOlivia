@@ -1,0 +1,86 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class LogIn {
+#username
+#password
+
+login()
+}
+class Game
+class Player
+class Inventory
+class Map
+class Room {
+-Room forwardRoom
+-Room backwardsRoom
+-Room upRoom
+-Room downRoom
+-String roomName
+-String roomDescription
+-ArrayList items
+#setForwardRoom()
+#setBackwardsRoom()
+#setUpRoom()
+#setDownRoom()
+#getForwardRoom()
+#getBackwardsRoom()
+#getUpRoom()
+#getDownRoom()
+#getItem()
+#addItem()
+#removeItem()
+
+}
+interface Creature {
+-String creatureName
+-String creatureDescription
+-String creatureMsg
+-int creatureDmgNum
+-int creatureHealth
+#void monsterReward()
+
+}
+class Friend {
+}
+class Neutral
+class Hostile
+abstract class Item{
+-String itemName
+-String itemDescription
+# String getItemName()
+#String getItemDescription()
+#void monsterReward()
+}
+class Gear {
+- int dmgReductionNum
+- int damage
+# double dmgReductionCalc()
+}
+class QuestItem {
+#boolean isQuestComplete()
+}
+class Consumables{
+-int healingStrength
+# int healingCalc()
+
+}
+
+LogIn*--Game
+Game*--Player
+Player*--Inventory
+Game*--Map
+Room*--Map
+Room*--Item
+Room*--Creature
+Creature<--Friend
+Creature<--Neutral
+Creature<--Hostile
+Item<--Gear
+Item<--Consumables
+Item<--QuestItem
+
+
+
+
+@enduml
