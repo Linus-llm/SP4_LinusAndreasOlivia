@@ -9,12 +9,11 @@ public class DBConnector {
     TextUI ui = new TextUI();
     public void connect(String url){
         try {
-            Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(url);
             System.out.println("connection establsihed");
-        } catch (SQLException |ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Connection failed: " + e.getMessage());
-            e.printStackTrace(); // very important!
+
         }
     }
 
