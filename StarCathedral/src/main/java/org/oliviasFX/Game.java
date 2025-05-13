@@ -5,7 +5,8 @@ public class Game {
     DBConnector db = new DBConnector();
 
     public void startGame(){
-        login.login();
         db.connect("jdbc:sqlite:game.sqlite");
+        login.login();
+
     }
 }

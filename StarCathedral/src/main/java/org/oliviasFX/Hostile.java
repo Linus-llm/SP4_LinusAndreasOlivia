@@ -1,4 +1,7 @@
 package org.oliviasFX;
 
-public class Hostile implements Creature{
+public class Hostile implements Creature {
+    public void monsterReward() {}
+    public boolean ifPlayerFriendly() { return false; }
+    public boolean ifPlayerHostile() { return true; }
 }
