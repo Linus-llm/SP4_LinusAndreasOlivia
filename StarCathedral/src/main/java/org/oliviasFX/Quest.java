@@ -1,5 +1,11 @@
 package org.oliviasFX;
 
 public class Quest {
-protected void startQuest(){}
+    private String questName;
+    private String questDescription;
+
+    protected void startQuest() {
+        // Start quest logik (skal implementeres)
+    }
 }
+
