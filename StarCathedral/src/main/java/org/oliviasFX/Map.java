@@ -1,9 +1,13 @@
+package org.oliviasFX;
+
 import java.util.ArrayList;
 
 public class Map {
 
     private ArrayList<Room> roomList; // en ring/et lag af rum
-
+    private ArrayList<Room> roomList1;
+    private ArrayList<Room> roomList2;
+    private ArrayList<Room> roomList3;
     private Room startRoom;
 
 
@@ -22,56 +26,56 @@ public class Map {
         Room room10 = new Room("Søvndyssende Sal", "Lyset flimrer som under lukkede øjenlåg. Du kæmper for at holde dig vågen, mens væggene ånder langsomt, som et sovende væsen.")
 
         //create roomLists
-        private ArrayList<Room> roomList1 = new ArrayList<>;// en ring/et lag af rum
+        roomList1 = new ArrayList<>;// en ring/et lag af rum
         roomList1.add(room1);
         roomList1.add(room2);
         roomList1.add(room3);
         roomList1.add(room4);
         roomList1.add(room5);
 
-        private ArrayList<Room> roomList2 = new ArrayList<>;
+        roomList2 = new ArrayList<>;
         roomList2.add(room6);
         roomList2.add(room7);
         roomList2.add(room8);
         roomList2.add(room9);
-        roomList2.add(room10)
+        roomList2.add(room10);
 
-        private ArrayList<Room> roomList3 = new ArrayList<>;
+        roomList3 = new ArrayList<>;
         //TODO: opret og tilfoej rum
 
         //connect rooms
 
         //etage
-        room1.setBackWardRoom(room5);
+        room1.setBackwardRoom(room5);
         room1.setForwardRoom(room2);
         //TODO: saet upRoom og downRoom
-        room2.setBackWardRoom(room1);
+        room2.setBackwardRoom(room1);
         room2.setForwardRoom(room3);
         //TODO: saet upRoom og downRoom
-        room3.setBackWardRoom(room2);
+        room3.setBackwardRoom(room2);
         room3.setForwardRoom(room4);
         //TODO: saet upRoom og downRoom
-        room4.setBackWardRoom(room3);
+        room4.setBackwardRoom(room3);
         room4.setForwardRoom(room5);
         //TODO: saet upRoom og downRoom
-        room5.setBackWardRoom(room4);
+        room5.setBackwardRoom(room4);
         room5.setForwardRoom(room1);
         //TODO: saet upRoom og downRoom
 
         //etage
-        room6.setBackWardRoom(room10);
+        room6.setBackwardRoom(room10);
         room6.setForwardRoom(room7);
         //TODO: saet upRoom og downRoom
-        room7.setBackWardRoom(room6);
+        room7.setBackwardRoom(room6);
         room7.setForwardRoom(room8);
         //TODO: saet upRoom og downRoom
-        room8.setBackWardRoom(room7);
+        room8.setBackwardRoom(room7);
         room8.setForwardRoom(room9);
         //TODO: saet upRoom og downRoom
-        room9.setBackWardRoom(room8);
+        room9.setBackwardRoom(room8);
         room9.setForwardRoom(room10);
         //TODO: saet upRoom og downRoom
-        room10.setBackWardRoom(room9);
+        room10.setBackwardRoom(room9);
         room10.setForwardRoom(room6);
         //TODO: saet upRoom og downRoom
 

@@ -1,3 +1,7 @@
+package org.oliviasFX;
+
+import java.util.ArrayList;
+
 public class Room {
 
     private Room upstairsRoom;
