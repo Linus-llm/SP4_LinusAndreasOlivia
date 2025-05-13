@@ -1,0 +1,38 @@
+@startuml
+!pragma layout smetana
+
+object Login
+object Game
+object Player
+object Inventory
+object Map
+object Creature
+object Friend
+object Neutral
+object Hostile
+object Item
+object Room
+object Gear
+object Consumeables
+object QuestItems
+
+Login--Game
+Game--Player
+Game--Map
+Player--Inventory
+Map-- Room
+Room--Creature
+Room--Item
+Item--QuestItems
+Item--Consumeables
+Item--Gear
+Creature--Friend
+Creature--Neutral
+Creature--Hostile
+
+
+
+
+}
+
+@enduml

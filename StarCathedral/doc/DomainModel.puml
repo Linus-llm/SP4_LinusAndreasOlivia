@@ -1,4 +1,5 @@
 @startuml
+!pragma layout smetana
 'https://plantuml.com/class-diagram
 
 class LogIn {
@@ -6,6 +7,22 @@ class LogIn {
 #password
 
 login()
+}
+class Riddle{
+-String description
+-ArrayList answerOptions
+#void processAnswer()
+#getRiddle()
+}
+
+class Quest{
+-String questName
+-String questDescription
+#void startQuest()
+}
+
+class Timer{
+#showTime()
 }
 class Game{
 +Game()
@@ -15,10 +32,22 @@ class Game{
 #goDirection()
 #getCurrentRoom()
 }
-class Player
+class Player{
+-String name
+-int health
+-ArrayList inventory
+#void getItem()
+#void dropItem()
+}
+
+
 class Inventory
 class Map {
+-ArrayList mapRoomList
+-ArrayList mapRoomList
+-ArrayList mapRoomList
 -Room startRoom
+#void rotateRooms()
 #buildMap()
 #getStartRoom()
 
@@ -51,6 +80,8 @@ interface Creature {
 -int creatureDmgNum
 -int creatureHealth
 #void monsterReward()
+#boolean ifPlayerFriendly()
+#boolean ifPlayerHostile()
 
 }
 class Friend {
@@ -78,6 +109,8 @@ class Consumables{
 
 }
 
+
+Timer*--Game
 LogIn*--Game
 Game*--Player
 Player*--Inventory
@@ -85,9 +118,11 @@ Game*--Map
 Room*--Map
 Room*--Item
 Room*--Creature
+Room*-- Riddle
 Creature<--Friend
 Creature<--Neutral
 Creature<--Hostile
+Creature *-- Quest
 Item<--Gear
 Item<--Consumables
 Item<--QuestItem

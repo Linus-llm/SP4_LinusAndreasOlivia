@@ -1,0 +1,37 @@
+@startuml
+!pragma layout smetana
+
+Class Login
+Class Game
+Class Player
+Class Inventory
+Class Map
+Class Creature
+Class Friend
+Class Neutral
+Class Hostile
+Class Item
+Class Room
+Class Gear
+Class Consumeables
+Class QuestItems
+Class Main
+
+Login--Main
+Login--Game
+Game--Player
+Game--Map
+Player--Inventory
+Map-- Room
+Room--Creature
+Room--Item
+Item--QuestItems
+Item--Consumeables
+Item--Gear
+Creature--Friend
+Creature--Neutral
+Creature--Hostile
+
+
+}
+@enduml
