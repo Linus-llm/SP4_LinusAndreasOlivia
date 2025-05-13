@@ -73,7 +73,7 @@ public class Room {
         return description;
     }
 
-    public Item getItem(){
+    public ArrayList<Item> getItem(){
         return items;
     }
 
