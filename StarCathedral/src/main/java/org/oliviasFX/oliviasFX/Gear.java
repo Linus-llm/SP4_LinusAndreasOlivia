@@ -1,4 +1,4 @@
-package org.oliviasFX;
+package main.java.org.oliviasFX.oliviasFX;
 
 public class Gear extends Item {
     private int dmgReductionNum;

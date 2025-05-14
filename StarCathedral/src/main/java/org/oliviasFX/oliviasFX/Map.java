@@ -1,4 +1,4 @@
-package org.oliviasFX;
+package main.java.org.oliviasFX.oliviasFX;
 
 import java.util.ArrayList;
 

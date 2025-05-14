@@ -1,4 +1,4 @@
-package org.oliviasFX;
+package main.java.org.oliviasFX.oliviasFX;
 
 public class Main{
     public static void main(String[] args) {

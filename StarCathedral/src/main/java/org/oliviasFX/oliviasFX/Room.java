@@ -1,4 +1,4 @@
-package org.oliviasFX;
+package main.java.org.oliviasFX.oliviasFX;
 
 import java.util.ArrayList;
 
@@ -89,7 +89,7 @@ public class Room {
 
     public Item findItem(String itemName) {
         for (Item item : items) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }

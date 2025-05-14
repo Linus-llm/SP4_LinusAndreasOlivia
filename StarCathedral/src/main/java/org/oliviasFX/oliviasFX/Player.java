@@ -1,4 +1,4 @@
-package org.oliviasFX;
+package main.java.org.oliviasFX.oliviasFX;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +29,11 @@ public class Player {
 
                 break;
             case UP:
-                requestedRoom = currentRoom().getUpstairsRoom();
+                requestedRoom = currentRoom.getUpstairsRoom();
 
                 break;
             case DOWN:
-                requestedRoom = currentRoom().getDownstairsRoom();
+                requestedRoom = currentRoom.getDownstairsRoom();
 
                 break;
         }
