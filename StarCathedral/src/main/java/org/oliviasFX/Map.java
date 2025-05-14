@@ -127,19 +127,9 @@ public class Map {
     }
 
     public void moveRooms(){
-        //ide:
 
-        //foer moveRooms
-        //roomList1 = {room0, room1, room2, room3, room4, room5, room6};
-        //roomList2 = {room0, room1, room2, room3, room4, room5, room6};
-        //roomList3 = {room0, room1, room2, room3, room4, room5, room6};
-
-        //efter moveRooms
-        //roomList1 = {room0, room1, room2, room3, room4, room5, room6};
-        //roomList2 = {room6, room1, room2, room3, room4, room5, room0};
-        //roomList3 = {room0, room1, room2, room3, room4, room5, room6};
-        //efter roomList2 har rokeret, har alle rum nu et nyt upstairs- og downstairsRoom, men samme forward og backward.
-
+        Room last = roomList2.remove(roomList2.size() - 1);
+        roomList2.add(0, last);
     }
 
     public Room getStartRoom(){

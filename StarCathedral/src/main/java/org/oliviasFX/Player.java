@@ -8,6 +8,7 @@ public class Player {
     private int health;
     private ArrayList<Item> inventory;
     private int playerDamage;
+    private Room currentRoom;
 
     public Player(){ inventory = new ArrayList<>();}
 
