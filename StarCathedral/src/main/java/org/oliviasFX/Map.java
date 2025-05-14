@@ -12,7 +12,7 @@ public class Map {
 
 
     public void buildMap(){
-        //create rooms
+        //create roomss
         Room room1 = new Room("Refleksionshallen", "Det spejllignende gulv kaster dit billede tilbage i forvrænget form, og tavse statuer i hættekapper stirrer uden øjne. En stemning af dom og erkendelse hviler i luften.");
         Room room2 = new Room("Arkivarens Gravkammer", "En marmorfigur hviler med hænderne på et forsejlet skrift. Dens læber er halvt åbne, som om den døde stadig prøver at hviske noget, du burde vide.");
         Room room3 = new Room("Offerkammeret", "Midt i rummet står et kar med stivnet blod og stjerner ristet i sten. Noget venter på, at du giver mere end din tilstedeværelse.");
