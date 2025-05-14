@@ -1,4 +1,10 @@
 package org.oliviasFX;
 
-public class Consumables extends Item{
+public class Consumables extends Item {
+    private int healingStrength;
+
+    protected int healingCalc() {
+
+        return healingStrength;
+    }
 }
