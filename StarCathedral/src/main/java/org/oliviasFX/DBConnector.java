@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX.oliviasFX;
+package main.java.org.oliviasFX;
 import java.sql.*;
 
 import java.sql.Connection;

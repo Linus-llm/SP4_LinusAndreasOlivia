@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX.oliviasFX;
+package main.java.org.oliviasFX;
 
 public class Neutral implements Creature {
     public void monsterReward() {}
