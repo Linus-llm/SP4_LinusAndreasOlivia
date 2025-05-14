@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX;
+package one;
 
 public abstract class Item {
     protected String itemName;

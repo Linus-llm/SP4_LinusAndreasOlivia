@@ -1,6 +1,4 @@
-package main.java.org.oliviasFX;
-
-import main.java.org.oliviasFX.*;
+package one;
 
 public class Game {
     LogIn login = new LogIn();
@@ -10,6 +8,7 @@ public class Game {
     private Player player;
     private Map map;
     private GameUserInterface gui = new GameUserInterface();
+    private TextUI ui = new TextUI();
 
     public Game(){
         map = new Map();
@@ -21,15 +20,15 @@ public class Game {
     public void startGame(){
         db.connect("jdbc:sqlite:game.sqlite");
         login.login();
-        startTime = System.currentTimeMillis(); //test for measuring time
-        login.login();
-        time.showTime(startTime); //test for displaying time in terminal
+        //startTime = System.currentTimeMillis(); //test for measuring time
+        //login.login();
+       //time.showTime(startTime); //test for displaying time in terminal
 
         boolean runningGame = true;
         gui.printWelcome();
 
         while(runningGame) {
-            String[] commandString = ui.readInput();
+            String[] commandString = gui.readInput();
             String firstWord = commandString[0];
             String secondWord = "";
             if (commandString.length > 1) {
@@ -61,18 +60,18 @@ public class Game {
                     break;
                 case "take":
                     if (player.getItem(secondWord)) {
-                        ui.printMessage("You have taken the " + secondWord);
+                        gui.printMessage("You have taken the " + secondWord);
                     } else {
-                        ui.printMessage("There is nothing like " + secondWord + " to take around here.");
+                        gui.printMessage("There is nothing like " + secondWord + " to take around here.");
                     }
                     break;
                 default:
-                    ui.printMessage("I do not understand that command.");
+                    gui.printMessage("I do not understand that command.");
             }
         }
     }
 
-    public void goCommand(){
+    public void goCommand(Direction direction){
         if(goDirection (direction)){
             Room currentRoom = getCurrentRoom();
             String name = currentRoom.getName();
@@ -89,18 +88,21 @@ public class Game {
         Direction requestedDirection = null;
 
         switch(word){
-            case "f":
+            case "f", "forward", "forwards":
                 requestedDirection = Direction.Forward;
                 break;
-            case "b":
+            case "b", "backwards":
                 requestedDirection = Direction.Backwards;
                 break;
-            case "u":
+            case "u", "up":
                 requestedDirection = Direction.UP;
                 break;
-            case "d":
+            case "d", "down":
                 requestedDirection = Direction.DOWN;
                 break;
+            default:
+                word = ui.promptText("Ugyldigt input prøv igen: ");
+                return parseCommand(word);
         }
         return requestedDirection;
     }

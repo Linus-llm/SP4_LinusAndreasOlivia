@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX;
+package one;
 
 public class Friendly implements Creature {
     public void monsterReward() {}
