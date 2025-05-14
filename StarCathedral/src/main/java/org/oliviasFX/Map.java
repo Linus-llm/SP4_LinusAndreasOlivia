@@ -11,7 +11,6 @@ public class Map {
     private Room startRoom;
 
 
-
     public void buildMap(){
         //create rooms
         Room room1 = new Room("Refleksionshallen", "Det spejllignende gulv kaster dit billede tilbage i forvrænget form, og tavse statuer i hættekapper stirrer uden øjne. En stemning af dom og erkendelse hviler i luften.");
@@ -52,6 +51,8 @@ public class Map {
         roomList3.add(room14);
         roomList3.add(room15);
 
+
+        startRoom = room1;
 
         //connect rooms
 
@@ -141,4 +142,7 @@ public class Map {
 
     }
 
+    public Room getStartRoom(){
+        return startRoom;
+    }
 }
