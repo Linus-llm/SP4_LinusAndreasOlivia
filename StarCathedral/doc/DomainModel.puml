@@ -36,8 +36,15 @@ class Player{
 -String name
 -int health
 -ArrayList inventory
++Player()
 #void getItem()
 #void dropItem()
++boolean move()
++Room getCurrentRoom()
++void setCurrentRoom()
++List<Item> getInventory()
++String getName()
+
 }
 
 
@@ -70,7 +77,9 @@ class Room {
 #getDownRoom()
 #getItem()
 #addItem()
-#removeItem()
++removeItem()
++findItem()
+
 
 }
 interface Creature {
