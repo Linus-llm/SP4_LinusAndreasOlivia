@@ -8,4 +8,13 @@ public class Game {
         login.login();
         db.connect("jdbc:sqlite:game.sqlite");
     }
+
+    public boolean goDirection(Direction direction){
+        return.player.move(direction);
+    }
+
+    public Room getCurrentRoom(){
+        return player.getCurrentRoom();
+    }
+
 }
