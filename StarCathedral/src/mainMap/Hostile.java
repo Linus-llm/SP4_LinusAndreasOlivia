@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX;
+package mainMap;
 
 public class Hostile implements Creature {
     public void monsterReward() {}

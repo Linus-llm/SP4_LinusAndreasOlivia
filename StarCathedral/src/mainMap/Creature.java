@@ -1,6 +1,7 @@
-package main.java.org.oliviasFX;
+package mainMap;
 
 public interface Creature {
+
 void monsterReward();
 
 boolean ifPlayerFriendly();

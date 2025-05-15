@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX;
+package mainMap;
 
 public enum Direction {
     Backwards, Forward, UP, DOWN

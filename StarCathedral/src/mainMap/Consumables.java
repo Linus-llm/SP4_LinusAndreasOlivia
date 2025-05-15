@@ -1,4 +1,4 @@
-package main.java.org.oliviasFX;
+package mainMap;
 
 public class Consumables extends Item {
     private int healingStrength;

@@ -1,6 +1,4 @@
-package main.java.org.oliviasFX;
-import java.util.ArrayList;
-
+package mainMap;
 import java.util.ArrayList;
 
 public class Riddles {

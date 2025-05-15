@@ -1,6 +1,4 @@
-package main.java.org.oliviasFX;
-
-import main.java.org.oliviasFX.*;
+package mainMap;
 
 public class Game {
     LogIn login = new LogIn();
