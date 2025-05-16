@@ -66,7 +66,8 @@ public class Game {
                     }
                     break;
                 default:
-                    gui.printMessage("I do not understand that command.");
+                    gui.printMessage("I do not understand that command");
+
             }
         }
     }
