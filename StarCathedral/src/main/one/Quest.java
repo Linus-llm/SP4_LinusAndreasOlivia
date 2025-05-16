@@ -3,14 +3,22 @@ package one;
 public class Quest {
     private String questName;
     private String questDescription;
-    private boolean isQuestCompleted;
+    protected boolean isQuestCompleted;
     public Quest(String name, String description){
         questName = name;
         questDescription = description;
+        isQuestCompleted = false;
     }
-    Quest q1 = new Quest("Destroy A Hostile Creature", "Find and destroy a HOSTILE creature!");
-protected void startQuestOne(Quest quest){
-    isQuestCompleted = false;
-    if
-}
+   public long checkCompletion(Player player, Room targetRoom){
+        if(player.getCurrentRoom()== targetRoom){
+            isQuestCompleted = true;
+            System.out.println("Quest'en er færdig: " + questName);
+            return -5000;
+
+        }else {
+            System.out.println("Quest'en er ikke klaret, forsæt din søgning!");
+            return 0;
+        }
+   }
+
 }

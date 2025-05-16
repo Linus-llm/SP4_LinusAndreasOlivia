@@ -3,24 +3,33 @@ package one;
 public class Game {
     LogIn login = new LogIn();
     DBConnector db = new DBConnector();
-    Timer time = new Timer();
-    long startTime;
+    private Timer time = new Timer();
+    private long startTime;
     private Player player;
     private Map map;
     private GameUserInterface gui = new GameUserInterface();
     private TextUI ui = new TextUI();
+    private Quest quest;
+    private Room targetRoom;
+    private long timeReward;
 
     public Game(){
         map = new Map();
         map.buildMap();
         player = new Player();
+        Room startRoom = map.getStartRoom();
+        Room missionRoom = map.fetchMissionRoom();
+        targetRoom = missionRoom;
+        quest = new Quest("Nå til rummet","Gå til det korrekte rum på anden sal, for at gennemføre quest'en");
+        time = new Timer();
         player.setCurrentRoom(map.getStartRoom());
+
     }
 
     public void startGame(){
         db.connect("jdbc:sqlite:game.sqlite");
         login.login();
-        //startTime = System.currentTimeMillis(); //test for measuring time
+        startTime = System.currentTimeMillis(); //test for measuring time
         //login.login();
        //time.showTime(startTime); //test for displaying time in terminal
 
@@ -53,6 +62,8 @@ public class Game {
                 case "bye":
                     runningGame = false;
                     gui.printMessage("Thank you for playing Adventure");
+                    time.showTime(startTime - timeReward);
+                    db.saveHighscore(login.getName(),time.getSeconds());
                     break;
                 case "go":
                     Direction direction = parseCommand(commandString[1]);
@@ -83,6 +94,9 @@ public class Game {
         else {
             System.out.println("You cannot go in that direction");
         }
+        timeReward = quest.check
+
+    Completion(player, targetRoom);
     }
 
     private Direction parseCommand(String word) {

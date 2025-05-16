@@ -135,4 +135,8 @@ public class Map {
     public Room getStartRoom(){
         return startRoom;
     }
+
+    public Room fetchMissionRoom(){
+        return roomList2.get(2);
+    }
 }

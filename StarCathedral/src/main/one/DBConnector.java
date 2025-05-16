@@ -98,5 +98,33 @@ public class DBConnector {
            System.out.println(e.getMessage());
        }
     }
+    public void saveHighscore(String username, long timeInSeconds){
+        String sql = "SELECT Highscore FROM Users WHERE username = '"+ username +"'";
+        try{
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery(sql);
+            if (rs.next()){
+                long existingTime = rs.getLong("Highscore");
+
+                if(timeInSeconds<existingTime){
+                    String sql1 = "UPDATE Users SET Highscore = '"+ timeInSeconds +"' WHERE username = '"+ username +"'";
+                    Statement stat1 = conn.createStatement();
+                    stat1.executeUpdate(sql1);
+                    System.out.println("New highscore!");
+                }else {
+                    System.out.println("No new highscore");
+                }
+
+        } else {
+                String sql2 = "INSERT INTO Users (username, Highscore) VALUES('"+username+"','"+timeInSeconds+"')";
+                Statement stat2 = conn.createStatement();
+                stat2.execute(sql2);
+                System.out.println("New highscore saved");
+            }
+
+            }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 }
