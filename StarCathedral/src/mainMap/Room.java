@@ -14,6 +14,7 @@ public class Room {
 
 
     private ArrayList<Item> items;
+    private ArrayList<Creature> creatures;
 
 
 
@@ -21,6 +22,7 @@ public class Room {
         this.name = name;
         this.description = description;
         items = new ArrayList<>();
+        creatures = new ArrayList<>();
     }
 
 

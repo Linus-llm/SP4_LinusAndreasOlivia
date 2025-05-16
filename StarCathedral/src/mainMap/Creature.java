@@ -7,4 +7,11 @@ void monsterReward();
 boolean ifPlayerFriendly();
 
 boolean ifPlayerHostile();
+
+public void displayCreature();
+
+public void displayActionOptions();
+
+public void proccessAndRewardAction();
 }
+

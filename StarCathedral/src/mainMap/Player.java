@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Player {
     private String playerName;
-    private int health;
+    private static int health;
     private ArrayList<Item> inventory;
     private int playerDamage;
     private Room currentRoom;
@@ -66,6 +66,10 @@ public class Player {
 
     }
     public String getName(){return playerName;}
+
+    public void setHealth(int newHealth){
+        this.health = newHealth;
+    }
 
     }
 
