@@ -7,7 +7,7 @@ public abstract class Item {
     public Item(String itemDescription) {
         this(itemDescription, extractNameFromDescription(itemDescription));
     }
-
+   //andreas commit
     public Item(String itemDescription, String itemName) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
