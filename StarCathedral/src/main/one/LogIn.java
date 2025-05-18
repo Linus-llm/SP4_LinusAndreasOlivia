@@ -1,15 +1,13 @@
 package one;
 
 public class LogIn {
-    TextUI ui = new TextUI();
-    DBConnector db = new DBConnector();
-    String username;
+    private TextUI ui = new TextUI();
+    private DBConnector db = new DBConnector();
+    private String username;
+    private String password;
     protected void login(){
         ui.displayMessage("Hej og velkommen til Stjernepræsternes stjernekatedral!");
         int userChoice = ui.promptNumeric("1. Login\n2. Opret konto");
-
-
-        String password;
         switch (userChoice) {
             case 1:
                 username = ui.promptText("Indtast Brugernavn: ");

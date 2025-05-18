@@ -3,10 +3,12 @@
 'https://plantuml.com/class-diagram
 
 class LogIn {
-#username
-#password
-#tsk
-login()
+- String username
+- String password
+- TextUI ui
+- DBConnector db
+# void login()
++ String getName()
 }
 class Riddle{
 -String description
