@@ -7,12 +7,16 @@ public class Riddle {
     private ArrayList<String> riddleList;
     private ArrayList<String> answerList;
     private ArrayList<String> hintList;
-    loadRiddles();
 
+    // Index of the current riddle
+    private int currentIndex = 0;
 
-    public Riddle(String description, ArrayList<String> answerOptions){
-    this.description = description;
-    this.answerOptions = answerOptions;
+    public Riddle(){
+        extraHintList = new ArrayList<>();
+        riddleList = new ArrayList<>();
+        answerList = new ArrayList<>();
+        hintList = new ArrayList<>();
+        loadRiddles();
     }
 
 
