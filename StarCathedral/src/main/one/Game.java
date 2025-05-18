@@ -50,34 +50,34 @@ public class Game {
                 case "inventory":
                     gui.showInventory(player);
                     break;
-                case "look":
+                case "kig":
                     gui.describeRoom(player.getCurrentRoom());
                     break;
-                case "help":
+                case "hjælp":
                 case "info":
                     gui.showHelp();
                     break;
                 case "quit":
                 case "exit":
-                case "bye":
+                case "farvel":
                     runningGame = false;
-                    gui.printMessage("Thank you for playing Adventure");
+                    gui.printMessage("Tak for at have spillet!");
                     time.showTime(startTime - timeReward);
                     db.saveHighscore(login.getName(),time.getSeconds());
                     break;
-                case "go":
+                case "gå":
                     Direction direction = parseCommand(commandString[1]);
                     goCommand(direction);
                     break;
-                case "take":
+                case "tag":
                     if (player.getItem(secondWord)) {
-                        gui.printMessage("You have taken the " + secondWord);
+                        gui.printMessage("Du har taget " + secondWord);
                     } else {
                         gui.printMessage("There is nothing like " + secondWord + " to take around here.");
                     }
                     break;
                 default:
-                    gui.printMessage("I do not understand that command");
+                    gui.printMessage("Jeg forstår ikke kommandoen");
 
             }
         }
@@ -92,27 +92,27 @@ public class Game {
             System.out.println(currentRoom.getDescription());
         }
         else {
-            System.out.println("You cannot go in that direction");
+            System.out.println("Du kan ikke gå den vej");
         }
-        timeReward = quest.check
+        timeReward = quest.checkCompletion(player,targetRoom);
 
-    Completion(player, targetRoom);
+
     }
 
     private Direction parseCommand(String word) {
         Direction requestedDirection = null;
 
         switch(word){
-            case "f", "forward", "forwards":
+            case "f", "fremad":
                 requestedDirection = Direction.Forward;
                 break;
-            case "b", "backwards":
+            case "b", "baglæns":
                 requestedDirection = Direction.Backwards;
                 break;
-            case "u", "up":
+            case "o", "op":
                 requestedDirection = Direction.UP;
                 break;
-            case "d", "down":
+            case "n", "ned":
                 requestedDirection = Direction.DOWN;
                 break;
             default:

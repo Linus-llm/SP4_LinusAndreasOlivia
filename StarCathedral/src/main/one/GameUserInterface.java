@@ -14,13 +14,13 @@ public class GameUserInterface {
     public void showInventory(Player player) {
         List<Item> items = player.getInventory();
         if (items.size() == 0) {
-            System.out.println("You aren't carrying anything");
+            System.out.println("Du har ikke noget i dit inventory");
         } else if (items.size() <= 3) {
             // Show a nice compact list if max. carrying three things
-            System.out.println("You are carrying " + prettyCommaSeparatedList(items));
+            System.out.println("Du bærer på " + prettyCommaSeparatedList(items));
 
         } else {
-            System.out.println("You are carrying: ");
+            System.out.println("Du bærer på: ");
             for (Item item : items) {
                 System.out.print(" - " + item);
             }
@@ -29,7 +29,7 @@ public class GameUserInterface {
     }
 
     public String[] readInput() {
-        System.out.println("Awaiting your command:");
+        System.out.println("Venter på din kommando:");
         String[] commands = scanner.nextLine().trim().toLowerCase().split(" ");
         return commands;
     }
@@ -38,7 +38,7 @@ public class GameUserInterface {
         System.out.println(room.getDescription());
         ArrayList<Item> items = room.getItem();
         if (!items.isEmpty()) {
-            System.out.print("Items in the room: ");
+            System.out.print("Items i rummet: ");
             for (Item item: items) {
                 System.out.print(item.getItemDescription() + " ");
             }
@@ -47,22 +47,22 @@ public class GameUserInterface {
     }
 
     public void printWelcome() {
-        System.out.println("Welcome to the game of Adventure!");
-        System.out.println("Type HELP or INFO for instructions on how to move around");
+        System.out.println("Velkommen til Stjernepræsternes stjernekatedral!");
+        System.out.println("Tast HJÆLP eller INFO for instrukser til at bevæge dig");
     }
 
     public void showHelp() {
         System.out.println("""
-                Instructions
+                Instruktioner
                 ------------
-                Type your command to the system, followed by enter. It doesn't matter if you use upper or lower-case.
+                Skriv kommando'en efterfulgt med enter. Store eller små bogstaver betyder ikke noget
                 These are the instructions recognized:
-                 HELP   or INFO, shows this help-text
-                 GO     followed by one of the directions: North, South, East or West, moves the player in that direction (if possible)
-                        You can also just write a direction, or simply the first letter of a direction.
-                 LOOK   Looks around you, and describes what you can see
-                 TAKE   or GET, followed by the name of an item, to pick up an item in the room
-                 EXIT   Ends the game
+                 Hjælp  eller INFO, viser dette tip
+                 Gå     Efterfulgt af hvilken retning du vil gå: Fremad, baglæns, Op, Ned hvis det er muligt
+                        Eller du kan bare skrive en retning eller det ene bogstav på retningen du vil gå
+                 Kig    Du kigger dig omkring og får beskrevet hvad du kan se
+                 Tag    Efterfulgt af navnet på item'et, for at samle det op
+                 EXIT   Slutter spillet
                 """);
     }
 
@@ -72,7 +72,7 @@ public class GameUserInterface {
         for (int i = 0; i < length; i++) {
             str.append(items.get(i));
             if (i == length - 2) {
-                str.append(" and ");
+                str.append(" og ");
             } else if (i < length - 2) {
                 str.append(", ");
             }
