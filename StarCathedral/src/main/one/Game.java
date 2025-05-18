@@ -68,6 +68,20 @@ public class Game {
                 default:
                     gui.printMessage("I do not understand that command");
 
+                case "bonusclue":
+                    gui.showExtraClue(
+                            player.getCurrentRoom().getRiddle().getCurrentExtraClue());
+                    break;
+
+                case "answer":
+                    Riddle r = player.getCurrentRoom().getRiddle();
+                    if (r != null && r.checkAnswer(secondWord)) {
+                        gui.printMessage("Bravo master riddler. You have solved the riddle!"
+                                r.nextRiddle());
+                    } else {
+                        gui.printMessage("The riddle remains unsolved... Type CLUE and/or BONUSCLUE for a nudge in the right direction.");
+                    }
+                break;
             }
         }
     }
