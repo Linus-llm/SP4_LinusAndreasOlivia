@@ -50,6 +50,10 @@ public class Player {
 
     public List<Item> getInventory(){return inventory;}
 
+    public void decreaseHealth(int amount) {
+        health -= amount;
+    }
+
     protected boolean getItem(String itemName){
         //should take item from the room the player is standing in and put it into inventory arraylist
         Item pickupFromRoom = currentRoom.removeItem(itemName);
@@ -66,6 +70,10 @@ public class Player {
 
     }
     public String getName(){return playerName;}
+
+    public void setHealth(int newHealth){
+        this.health = newHealth;
+    }
 
     }
 

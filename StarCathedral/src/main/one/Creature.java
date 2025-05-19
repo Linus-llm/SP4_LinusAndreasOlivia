@@ -8,7 +8,7 @@ public interface Creature {
 
     boolean ifPlayerHostile();
 
-    public void displayCreature();
+    public String displayCreature();
 
     public void displayActionOptions();
 

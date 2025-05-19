@@ -9,12 +9,13 @@ public class Neutral implements Creature {
     int creatureDamage = 1;
     int creatureHealth = 1;
     String creatureMsg;
+    Game g = new Game();
 
     ArrayList<String> actionOptions;
 
     Scanner scanner = new Scanner(System.in);
 
-    public Neutral(String creatureName, String creatureDescription, ArrayList<String> actionOptions, int creatureHealth) {
+    public Neutral(String creatureName, String creatureDescription, ArrayList<String>actionOptions, int creatureHealth){
         this.creatureName = creatureName;
         this.creatureDescription = creatureDescription;
         this.actionOptions = actionOptions;
@@ -22,26 +23,21 @@ public class Neutral implements Creature {
     }
 
     @Override
-    public void monsterReward() {
+    public void monsterReward() {}
+
+    @Override
+    public boolean ifPlayerFriendly() { return false; }
+
+    @Override
+    public boolean ifPlayerHostile() { return false; }
+
+    @Override
+    public String displayCreature(){
+        return getCreatureDescription();
     }
 
     @Override
-    public boolean ifPlayerFriendly() {
-        return false;
-    }
-
-    @Override
-    public boolean ifPlayerHostile() {
-        return false;
-    }
-
-    @Override
-    public void displayCreature() {
-        System.out.println(getCreatureDescription());
-    }
-
-    @Override
-    public void displayActionOptions() {
+    public void displayActionOptions(){
         ArrayList<String> options = getActionOptions();
         for (String option : options) {
             System.out.println(option);
@@ -49,12 +45,14 @@ public class Neutral implements Creature {
     }
 
     @Override
-    public void proccessAndRewardAction() {
-
+    public void proccessAndRewardAction(){
+        System.out.print("tryk 1 for offesiv/deffensiv handling eller 2 for venlig handling");
         int option = scanner.nextInt();
-        switch (option) {
+        switch(option){
             case 1: //offensiv-deffensiv option
                 //remove creature from roomList
+                g.getCurrentRoom().getCreatures().remove(0);
+                System.out.println(creatureName + " er forsvundet fra rummet..");
                 break;
             case 2: //venligsindet option
                 // tilfoej god karma
@@ -63,15 +61,19 @@ public class Neutral implements Creature {
         }
     }
 
-    public String getCreatureName() {
+    public String getCreatureName(){
         return creatureName;
     }
 
-    public String getCreatureDescription() {
+    public String getCreatureDescription(){
         return creatureDescription;
     }
 
-    public ArrayList getActionOptions() {
+    public ArrayList getActionOptions(){
         return actionOptions;
+    }
+
+    public int getCreatureHealth(){
+        return creatureHealth;
     }
 }

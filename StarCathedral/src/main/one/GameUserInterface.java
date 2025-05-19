@@ -37,6 +37,7 @@ public class GameUserInterface {
     public void describeRoom(Room room) {
         System.out.println(room.getDescription());
         ArrayList<Item> items = room.getItem();
+        ArrayList<Creature> creatures = room.getCreatures();
         if (!items.isEmpty()) {
             System.out.print("Items i rummet: ");
             for (Item item: items) {
@@ -44,6 +45,15 @@ public class GameUserInterface {
             }
             System.out.println();
         }
+        System.out.println();
+
+
+        if (!creatures.isEmpty()){
+        System.out.print("Items in the room: ");
+        for (Creature creature: creatures) {
+            System.out.print(creature.displayCreature() + " ");
+        }
+        System.out.println();}
     }
 
     public void printWelcome() {
@@ -80,7 +90,8 @@ public class GameUserInterface {
         return str.toString();
     }
 
-    public void printMessage(String message) {
+    public void printMessage(String message)
+    {
         System.out.println(message);
     }
 

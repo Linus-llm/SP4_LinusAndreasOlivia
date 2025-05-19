@@ -1,6 +1,7 @@
 package one;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Map {
 
@@ -29,6 +30,111 @@ public class Map {
         Room room14 = new Room("Tidens Kammer", "Ure i alle former og aldre dækker væggene, men ingen går rigtigt. Hver gang du blinker, har ét flyttet sig – og du fornemmer, tiden gør det samme.");
         Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.");
 
+        Hostile creature1 = new Hostile(
+                "Astralfødte",
+                "Rummet er fyldt med et blødt lys, og i dens midte bevæger sig et væsen lavet af stjerneskær...",
+                new ArrayList<>(List.of("Hold afstand", "Henvend dig venligt")),
+                1
+        );
+
+        Hostile creature2 = new Hostile(
+                "Den Tunge Pust",
+                "Rummet føles tungt og stillestående, som om du står i et rum, hvor al tid er blevet stanset...",
+                new ArrayList<>(List.of("Træk dig tilbage", "Lyt respektfuldt")),
+                1
+        );
+
+        Hostile creature3 = new Hostile(
+                "Stjernevogteren",
+                "Rummet er fyldt med et blinkende lys, og du ser et væsen, der er lavet af krystal og knogler...",
+                new ArrayList<>(List.of("Sluk flammerne først", "Vis fredelig hensigt")),
+                1
+        );
+
+        Hostile creature4 = new Hostile(
+                "Skindsløreren",
+                "Rummet er fyldt med et blinkende lys, og du ser et væsen, der er lavet af krystal og knogler...",
+                new ArrayList<>(List.of("Træk våben", "Tal roligt")),
+                1
+        );
+
+        Hostile creature5 = new Hostile(
+                "Stenskrigeren",
+                "Rummet er mørkt og fyldt med støv... Dens krop er forstenet af tidens gang.",
+                new ArrayList<>(List.of("Ryst væggen", "Vis noget fra fortiden")),
+                1
+        );
+
+        Hostile creature6 = new Hostile(
+                "Nedskriveren",
+                "I dette rum står en væsen med ryggen til, kradsende med en sølvpen på væggen...",
+                new ArrayList<>(List.of("Riv teksten ned", "Spørg hvad den skriver")),
+                1
+        );
+
+        Hostile creature7 = new Hostile(
+                "De Tavse Syngere",
+                "Rummet er præget af et ekko... deres tilstedeværelse virker både hypnotisk og skræmmende.",
+                new ArrayList<>(List.of("Dæk dine ører", "Syng med i roligt tempo")),
+                1
+        );
+
+        Friendly creature8 = new Friendly(
+                "Vogteren af 7. Flamme",
+                "Rummet er fyldt med flammer... Denne væsen er en manifestation af dig selv.",
+                new ArrayList<>(List.of("Test din styrke", "Del dine valg")),
+                1
+        );
+
+        Hostile creature9 = new Hostile(
+                "Lysbæreren",
+                "I dette rum ser du en skikkelse, der holder en lanterne... du er usikker på, hvad du vil miste.",
+                new ArrayList<>(List.of("Nægt dens tilbud", "Spørg om lanternens kraft")),
+                1
+        );
+
+        Hostile creature10 = new Hostile(
+                "Ekkoet",
+                "Rummet virker tomt, men du hører dine egne ord, gentaget tilbage til dig...",
+                new ArrayList<>(List.of("Tie stille", "Spørg hvem den er")),
+                1
+        );
+
+        Hostile creature11 = new Hostile(
+                "Kugleøjet",
+                "Rummet er fyldt med et uendeligt mørke... og noget ændrer sig...",
+                new ArrayList<>(List.of("Skjul dig", "Buk dig og nik")),
+                1
+        );
+
+        Friendly creature12 = new Friendly(
+                "De Glemsomme",
+                "I dette rum går en gruppe hætteklædte figurer i ring... Deres hukommelse er sløret.",
+                new ArrayList<>(List.of("Besvar deres spørgsmål", "Spørg til deres fortid")),
+                1
+        );
+
+        Hostile creature13 = new Hostile(
+                "Stjerneslyngen",
+                "Rummet er fyldt med et kosmisk væsen... men du føler dig langsomt fanget.",
+                new ArrayList<>(List.of("Modstå kraften", "Tal blidt til det")),
+                1
+        );
+
+        Hostile creature14 = new Hostile(
+                "Den Tavse Arkivar",
+                "I dette mørke rum sidder en skikkelse og skriver i et evigt voksende bibliotek...",
+                new ArrayList<>(List.of("Luk bogen", "Spørg om dine fejl")),
+                1
+        );
+
+        Friendly creature15 = new Friendly(
+                "Zodiakens Klædte",
+                "Rummet er fyldt med tolv skikkelser, der bærer stjernetegnens rustninger...",
+                new ArrayList<>(List.of("Tag imod deres prøve", "Del din livsrejse")),
+                1
+        );
+
         //create roomLists
         roomList1 = new ArrayList<>();// en ring/et lag af rum
         roomList1.add(room1);
@@ -53,6 +159,24 @@ public class Map {
 
 
         startRoom = room1;
+
+        //add creatures to rooms
+        room1.addCreature(creature1);
+        room2.addCreature(creature2);
+        room3.addCreature(creature3);
+        room4.addCreature(creature4);
+        room5.addCreature(creature5);
+        room6.addCreature(creature6);
+        room7.addCreature(creature7);
+        room8.addCreature(creature8);
+        room9.addCreature(creature9);
+        room10.addCreature(creature10);
+        room11.addCreature(creature11);
+        room12.addCreature(creature12);
+        room13.addCreature(creature13);
+        room14.addCreature(creature14);
+        room15.addCreature(creature15);
+
 
         //connect rooms
 
