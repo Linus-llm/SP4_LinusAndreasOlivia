@@ -12,78 +12,57 @@ public class Player {
 
     public Player() {
         inventory = new ArrayList<>();
-        health = 100; // Standard startværdi, kan justeres
-        playerDamage = 10; // Standard skade
+        health = 100; // Start HP
+        playerDamage = 10; // Startskade
     }
 
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
+    public Room getCurrentRoom() { return currentRoom; }
 
-    public void setCurrentRoom(Room startRoom) {
-        currentRoom = startRoom;
-    }
+    public void setCurrentRoom(Room startRoom) { this.currentRoom = startRoom; }
 
     public boolean move(Direction direction) {
         Room requestedRoom = null;
 
         switch (direction) {
             case Forward:
-                requestedRoom = currentRoom.getForwardRoom();
-                break;
+                requestedRoom = currentRoom.getForwardRoom(); break;
             case Backwards:
-                requestedRoom = currentRoom.getBackwardRoom();
-                break;
+                requestedRoom = currentRoom.getBackwardRoom(); break;
             case UP:
-                requestedRoom = currentRoom.getUpstairsRoom(); // rettet fra currentRoom()
-                break;
+                requestedRoom = currentRoom.getUpstairsRoom(); break;
             case DOWN:
-                requestedRoom = currentRoom.getDownstairsRoom();
-                break;
+                requestedRoom = currentRoom.getDownstairsRoom(); break;
         }
 
         if (requestedRoom != null) {
             setCurrentRoom(requestedRoom);
             return true;
-        } else {
-            return false;
-        }
-    }
-
-    public List<Item> getInventory() {
-        return inventory;
-    }
-
-    protected boolean getItem(String itemName) {
-        // Hent item fra nuværende rum og læg i inventory
-        Item pickupFromRoom = currentRoom.removeItem(itemName);
-        if (pickupFromRoom != null) {
-            inventory.add(pickupFromRoom);
-            System.out.println("You picked up the item: " + pickupFromRoom.getItemName());
-            return true;
         }
         return false;
     }
 
-    protected void dropItem() {
-        // Skal implementeres: fjern item fra inventory og tilføj til currentRoom
+    public List<Item> getInventory() { return inventory; }
+
+    // Saml item op fra rum
+    protected boolean getItem(String itemName) {
+        Item pickup = currentRoom.removeItem(itemName);
+        if (pickup != null) {
+            inventory.add(pickup);
+            System.out.println("You picked up the item: " + pickup.getItemName());
+            return true;
+        }
+        System.out.println("No such item found in this room.");
+        return false;
     }
 
-    public String getName() {
-        return playerName;
-    }
-
-    /**
-     * Brug et consumable fra inventory.
-     * Forventer at item er af typen Consumables og matcher navnet.
-     */
+    // Brug et consumable item
     public boolean useConsumable(String itemName) {
         for (Item item : inventory) {
             if (item instanceof Consumables && item.getItemName().equalsIgnoreCase(itemName)) {
                 int heal = ((Consumables) item).healingCalc();
                 this.health += heal;
                 inventory.remove(item);
-                System.out.println("You used " + itemName + " and healed " + heal + " health.");
+                System.out.println("You used " + itemName + " and healed " + heal + " HP.");
                 System.out.println("Current health: " + this.health);
                 return true;
             }
@@ -92,11 +71,21 @@ public class Player {
         return false;
     }
 
-    public int getHealth() {
-        return health;
-    }
+    public int getHealth() { return health; }
 
-    public int getPlayerDamage() {
-        return playerDamage;
+    public int getPlayerDamage() { return playerDamage; }
+
+    public String getName() { return playerName; }
+
+    // (Valgfri) Udskriv inventory
+    public void printInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println("Inventory is empty.");
+        } else {
+            System.out.println("Inventory:");
+            for (Item item : inventory) {
+                System.out.println("- " + item);
+            }
+        }
     }
 }
