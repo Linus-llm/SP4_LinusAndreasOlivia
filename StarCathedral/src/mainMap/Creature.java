@@ -8,7 +8,7 @@ boolean ifPlayerFriendly();
 
 boolean ifPlayerHostile();
 
-public void displayCreature();
+public String displayCreature();
 
 public void displayActionOptions();
 

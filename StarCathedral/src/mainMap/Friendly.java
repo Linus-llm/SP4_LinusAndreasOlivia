@@ -8,6 +8,7 @@ public class Friendly implements Creature {
     String creatureDescription;
     String creatureMsg;
     int creatureHealth = 1;
+    Game g = new Game();
 
     ArrayList<String> actionOptions;
 
@@ -30,8 +31,8 @@ public class Friendly implements Creature {
     public boolean ifPlayerHostile() { return false; }
 
     @Override
-    public void displayCreature(){
-        System.out.println(getCreatureDescription());
+    public String displayCreature(){
+       return getCreatureDescription();
     }
 
     @Override
@@ -44,12 +45,14 @@ public class Friendly implements Creature {
 
     @Override
     public void proccessAndRewardAction(){
-
+        System.out.print("tryk 1 for offesiv/deffensiv handling eller 2 for venlig handling");
         int option = scanner.nextInt();
         switch(option){
             case 1: //offensiv-deffensiv option
                 //tilfoej daarlig karma
                 ////remove creature from roomList
+                g.getCurrentRoom().getCreatures().remove(0);
+                System.out.println(creatureName + " er forsvundet fra rummet..");
                 break;
             case 2: //venligsindet option
                 // tilfoej god karma

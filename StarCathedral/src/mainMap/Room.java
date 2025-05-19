@@ -25,6 +25,18 @@ public class Room {
         creatures = new ArrayList<>();
     }
 
+    public void addCreature(Creature creature) {
+        creatures.add(creature);
+    }
+
+    public void removeCreature(Creature creature) {
+        creatures.remove(creature);
+    }
+
+    public ArrayList<Creature> getCreatures() {
+        return creatures;
+    }
+
 
     public Room getUpstairsRoom(){
 

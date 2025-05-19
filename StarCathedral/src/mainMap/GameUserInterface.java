@@ -37,14 +37,25 @@ public class GameUserInterface {
     public void describeRoom(Room room) {
         System.out.println(room.getDescription());
         ArrayList<Item> items = room.getItem();
+        ArrayList<Creature> creatures = room.getCreatures();
         if (!items.isEmpty()) {
             System.out.print("Items in the room: ");
             for (Item item: items) {
                 System.out.print(item.getItemDescription() + " ");
             }
             System.out.println();
+
         }
+        if (!creatures.isEmpty()){
+            System.out.print("Items in the room: ");
+            for (Creature creature: creatures) {
+                System.out.print(creature.displayCreature() + " ");
+            }
+            System.out.println();}
+
     }
+
+
 
     public void printWelcome() {
         System.out.println("Welcome to the game of Adventure!");

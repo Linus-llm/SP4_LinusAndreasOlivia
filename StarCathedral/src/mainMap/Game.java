@@ -57,6 +57,12 @@ public class Game {
                 case "go":
                     Direction direction = parseCommand(commandString[1]);
                     goCommand(direction);
+                    if(getCurrentRoom().getCreatures().size()>0){
+                    getCurrentRoom().getCreatures().get(0).displayCreature();
+                    getCurrentRoom().getCreatures().get(0).displayActionOptions();
+                    getCurrentRoom().getCreatures().get(0).proccessAndRewardAction();
+
+                    }
                     break;
                 case "take":
                     if (player.getItem(secondWord)) {
@@ -65,6 +71,7 @@ public class Game {
                         gui.printMessage("There is nothing like " + secondWord + " to take around here.");
                     }
                     break;
+
                 default:
                     gui.printMessage("I do not understand that command.");
             }
@@ -115,5 +122,8 @@ public class Game {
         return player.getCurrentRoom();
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 }
 
