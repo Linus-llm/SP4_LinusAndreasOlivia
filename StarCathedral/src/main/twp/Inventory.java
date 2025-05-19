@@ -1,3 +1,3 @@
-package one;
+package twp;
 public class Inventory {
 }

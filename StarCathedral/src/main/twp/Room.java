@@ -1,4 +1,4 @@
-package one;
+package twp;
 
 import java.util.ArrayList;
 
@@ -8,9 +8,10 @@ public class Room {
     private Room downstairsRoom;
     private Room forwardRoom;
     private Room backwardRoom;
-
+    private Riddle riddle;
     private String name;
     private String description;
+    private boolean isLocked;
 
 
     private ArrayList<Item> items;
@@ -18,11 +19,20 @@ public class Room {
 
 
 
-    public Room(String name, String description){
+    public Room(String name, String description, boolean isLockedtmp){
         this.name = name;
         this.description = description;
         items = new ArrayList<>();
         creatures = new ArrayList<>();
+        isLocked = isLockedtmp;
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void addItem(String description, String name) {
+        this.addItem(new Consumables(description, name));
     }
 
 
@@ -108,5 +118,18 @@ public class Room {
         }
         return null;
     }
+    public void setRiddle(Riddle r) {
+        this.riddle = r;
+    }
+    public Riddle getRiddle() {
+        return riddle;
+    }
+    public boolean getIsLocked(){
+        return isLocked;
+    }
+    public void setIsLockedFalse(){
+        isLocked = false;
+    }
+
 
 }

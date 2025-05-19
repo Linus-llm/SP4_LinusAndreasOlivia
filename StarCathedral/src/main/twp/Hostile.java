@@ -1,4 +1,4 @@
-package one;
+package twp;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -65,6 +65,7 @@ public class Hostile implements Creature {
                 //playerHealth -1;
                 player.decreaseHealth(1);
                 System.out.println("du mistede et liv");
+
                 break;
         }
     }

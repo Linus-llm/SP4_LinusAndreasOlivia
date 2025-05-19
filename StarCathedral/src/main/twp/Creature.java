@@ -1,4 +1,4 @@
-package one;
+package twp;
 
 public interface Creature {
 
@@ -9,6 +9,8 @@ public interface Creature {
     boolean ifPlayerHostile();
 
     public String displayCreature();
+
+    public String getCreatureName();
 
     public void displayActionOptions();
 

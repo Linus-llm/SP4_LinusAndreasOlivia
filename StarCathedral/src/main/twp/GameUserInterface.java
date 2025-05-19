@@ -1,4 +1,4 @@
-package one;
+package twp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +59,15 @@ public class GameUserInterface {
     public void printWelcome() {
         System.out.println("Velkommen til Stjernepræsternes stjernekatedral!");
         System.out.println("Tast HJÆLP eller INFO for instrukser til at bevæge dig");
+        System.out.println("I en svunden æra, før landene blev adskilt af kongedømmer og krige, styrede Stjernepræsterne over et folk, der lyttede til himlen.\n" +
+                " De byggede en enorm, stenkold katedral dybt under jorden – ikke for at tilbede guder, men for at forstå stjernernes stemmer.\n" +
+                " Det siges, at rummet og tidens mønstre blev mejslet i væggene og ændrede sig efter himlens bevægelser.\n" +
+                "En dag forsvandt præsterne. Uden varsel. Katedralen blev forseglet, og i århundreder blev den glemt.\n" +
+                "Men stjernerne er begyndt at bevæge sig forkert. Kometer kredser mod Jorden i omvendte baner. Mennesker drømmer om en stemme, der hvisker:\n" +
+                "“Tænd lyset. Syv flammer for at vække balancen.”\n" +
+                "Du er én af de få, der mærker kaldet. Legender siger, at syv stjerner blev tændt i katedralen for at holde kaos i skak. Nu er de slukket.\n" +
+                "Du stiger ned i mørket, alene, kun med din viden og dit mod, for at finde og tænde de syv stjernelys igen — og måske forstå, hvad der skete med præsterne… og hvorfor de aldrig vendte tilbage.\n");
+        System.out.println("Tænd de syv lys i rummene og få adgang til de sidste rum");
     }
 
     public void showHelp() {

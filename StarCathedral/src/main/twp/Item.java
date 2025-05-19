@@ -1,4 +1,4 @@
-package one;
+package twp;
 
 public abstract class Item {
     protected String itemName;
@@ -19,10 +19,6 @@ public abstract class Item {
 
     protected String getItemDescription() {
         return itemDescription;
-    }
-
-    protected void monsterReward() {
-
     }
 
     @Override
