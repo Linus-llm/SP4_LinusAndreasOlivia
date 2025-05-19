@@ -1,4 +1,5 @@
-package one;
+// Tess - prøver lige hurtigt at ændre package one til main.one på flere klasser, skifter tilbage med det samme hvis det ikke virker, men jeg kan ikke compile - package one;
+package main.one;
 
 public class Game {
     LogIn login = new LogIn();
@@ -65,8 +66,10 @@ public class Game {
                         gui.printMessage("There is nothing like " + secondWord + " to take around here.");
                     }
                     break;
-                default:
-                    gui.printMessage("I do not understand that command");
+// Tess added cases for clue, bonus clue and answer
+                case "clue":
+                    gui.showClue(player.getCurrentRoom().getRiddle().getCurrentClue());
+                break;
 
                 case "bonusclue":
                     gui.showExtraClue(
@@ -76,8 +79,8 @@ public class Game {
                 case "answer":
                     Riddle r = player.getCurrentRoom().getRiddle();
                     if (r != null && r.checkAnswer(secondWord)) {
-                        gui.printMessage("Bravo master riddler. You have solved the riddle!"
-                                r.nextRiddle());
+                        gui.printMessage("Bravo master riddler. You have solved the riddle!");
+                                r.nextRiddle();
                     } else {
                         gui.printMessage("The riddle remains unsolved... Type CLUE and/or BONUSCLUE for a nudge in the right direction.");
                     }
@@ -93,8 +96,18 @@ public class Game {
             String line = "-".repeat(name.length());
             System.out.println(line + "\n" + name + "\n" + line);
             System.out.println(currentRoom.getDescription());
-        }
-        else {
+
+            // Tess - if room has a riddle show to user with instructions
+if (currentRoom.getRiddle() != null) {
+    Riddle r = currentRoom.getRiddle();
+    gui.printMessage("Step right up, Brave soul! Here is your riddle: ");
+    gui.printMessage(r.getCurrentRiddle());
+    gui.printMessage("Type CLUE for a cryptic cryptic viewing of the answer with letters revealed.");
+    gui.printMessage("Type BONUSCLUE for a last hope at guessing the answer.");
+
+}
+
+        } else {
             System.out.println("You cannot go in that direction");
         }
     }

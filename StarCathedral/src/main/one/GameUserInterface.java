@@ -1,4 +1,5 @@
-package one;
+// Tess - prøver lige hurtigt at ændre package one til main.one på flere klasser, skifter tilbage med det samme hvis det ikke virker, men jeg kan ikke compile - package one;
+package main.one;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,12 @@ public class GameUserInterface {
         }
     }
 
+    // Tess - read the whole line
+    public String readRawInput() {
+        System.out.println("Your move: ");
+        return scanner.nextLine();
+    }
+
     public String[] readInput() {
         System.out.println("Awaiting your command:");
         String[] commands = scanner.nextLine().trim().toLowerCase().split(" ");
@@ -50,7 +57,7 @@ public class GameUserInterface {
         System.out.println("Welcome to the game of Adventure!");
         System.out.println("Type HELP or INFO for instructions on how to move around");
     }
-
+// Tess - added answer, clue, bonus clue
     public void showHelp() {
         System.out.println("""
                 Instructions
@@ -63,6 +70,10 @@ public class GameUserInterface {
                  LOOK   Looks around you, and describes what you can see
                  TAKE   or GET, followed by the name of an item, to pick up an item in the room
                  EXIT   Ends the game
+                
+                 ANSWER To answer a riddle followed by your guess
+                 CLUE   For blocked out letters of the answer
+                 BONUSCLUE  For the final clue 
                 """);
     }
 
@@ -84,4 +95,19 @@ public class GameUserInterface {
         System.out.println(message);
     }
 
+    // Tess – show clue
+    public void showClue(String clue) {
+        System.out.println();
+        System.out.println("Ooh, you called in Sherlock! Here’s your cryptic clue:");
+        System.out.println("   “" + clue + "”");
+        System.out.println();
+    }
+
+    // Tess – ekstra clue
+    public void showExtraClue(String extra) {
+        System.out.println();
+        System.out.println("Psst… bonus clue incoming:");
+        System.out.println("   “" + extra + "”");
+        System.out.println();
+    }
 }

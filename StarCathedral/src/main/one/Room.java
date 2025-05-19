@@ -15,7 +15,6 @@ public class Room {
     private String name;
     private String description;
 
-
     private ArrayList<Item> items;
 
 // Tess - Connecting riddle with rooms
@@ -40,6 +39,7 @@ public class Room {
     public Riddle getRiddle(){
         return riddle;
     }
+    // Tess - method for presenting the riddle, presenting to user unless there is no riddle and in that case null
 
     public String presentRiddle(){
         if (riddle != null) {
@@ -107,7 +107,6 @@ public class Room {
             // Tess - mangler det her lige under?
             items.remove(itemToBeRemoved);
             return itemToBeRemoved;
-
 
         }
         return null;

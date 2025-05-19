@@ -1,4 +1,9 @@
-package one;
+// // Tess - prøver lige hurtigt at ændre package one til main.one på flere klasser, skifter tilbage med det samme hvis det ikke virker, men jeg kan ikke compile - package one;
+// package one;
+
+//Tess - riddle class
+
+package main.one;
 
 import java.util.ArrayList;
 
@@ -14,21 +19,35 @@ public class Map {
     public void buildMap(){
         //create roomss
         Room room1 = new Room("Refleksionshallen", "Det spejllignende gulv kaster dit billede tilbage i forvrænget form, og tavse statuer i hættekapper stirrer uden øjne. En stemning af dom og erkendelse hviler i luften.");
+        room1.setRiddle(new Riddle());
         Room room2 = new Room("Arkivarens Gravkammer", "En marmorfigur hviler med hænderne på et forsejlet skrift. Dens læber er halvt åbne, som om den døde stadig prøver at hviske noget, du burde vide.");
+        room2.setRiddle(new Riddle());
         Room room3 = new Room("Offerkammeret", "Midt i rummet står et kar med stivnet blod og stjerner ristet i sten. Noget venter på, at du giver mere end din tilstedeværelse.");
+        room3.setRiddle(new Riddle());
         Room room4 = new Room("Det Uskrevne Værelse", "Væggene her er tomme og lyddøde, men du føler, noget blev slettet. Et skrivebord i midten bæver svagt, som om det ikke kan beslutte, hvad det engang bar.");
+        room4.setRiddle(new Riddle());
         Room room5 = new Room("Skyggesalen", "Lyset bøjer unaturligt i dette rum, og dine egne skygger bevæger sig, før du gør det. Noget skjult bag søjlerne følger dig med stille interesse.");
+        room5.setRiddle(new Riddle());
         Room room6 = new Room("Labyrintisk Søjlegård", "Søjlerne her danner mønstre, der skifter, hver gang du vender dig. Bag dem hører du skridt, som du ikke har taget.");
+        room6.setRiddle(new Riddle());
         Room room7 = new Room("Skt. Astarys Kuppel", "En duft af gammel røgelse hænger i luften. Midt i rummet knæler en tom rustning foran en glitrende mosaik, som viser en kvinde, der aldrig ældedes.");
+        room7.setRiddle(new Riddle());
         Room room8 = new Room("Skriftgalleriet", "Du træder ind mellem buede vægge dækket af flydende tekst. Skriften ændrer sig i takt med dine skridt – som om den skriver om dig.");
+        room8.setRiddle(new Riddle());
         Room room9 = new Room("Tågespiralen", "En kold, sølvgrå tåge snoer sig op ad en spiraltrappe uden gelænder. Hver omgang får lydene til at ændre sig, som om tiden selv bøjer sig.");
+        room9.setRiddle(new Riddle());
         Room room10 = new Room("Søvndyssende Sal", "Lyset flimrer som under lukkede øjenlåg. Du kæmper for at holde dig vågen, mens væggene ånder langsomt, som et sovende væsen.");
+        room10.setRiddle(new Riddle());
         Room room11 = new Room("Den Forsvundne Skakt", "Gulvet er dækket af flager af nedfaldent loft. En åbning i midten fører dybt ned i mørke – men kulden, der stiger op, føles som en hvisken fra noget glemt.");
+        room11.setRiddle(new Riddle());
         Room room12 =  new Room("Rummet med Vævet Lys", "Lysstråler hænger i luften som tråde. Du må bevæge dig langsomt, ellers risikerer du at flænse vævet – og med det, måske også noget i dig selv.");
+        room12.setRiddle(new Riddle());
         Room room13 = new Room("Stenbønnernes Hvælv", "Du træder ind i et rundt rum, hvor stenfigurer sidder i bøn. Deres munde er åbne, men tavse – og rummet genlyder af dine egne tanker i forvrænget ekko.");
+        room13.setRiddle(new Riddle());
         Room room14 = new Room("Tidens Kammer", "Ure i alle former og aldre dækker væggene, men ingen går rigtigt. Hver gang du blinker, har ét flyttet sig – og du fornemmer, tiden gør det samme.");
+        room14.setRiddle(new Riddle());
         Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.");
-
+        room15.setRiddle(new Riddle());
         //create roomLists
         roomList1 = new ArrayList<>();// en ring/et lag af rum
         roomList1.add(room1);

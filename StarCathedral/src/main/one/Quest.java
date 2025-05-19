@@ -8,10 +8,12 @@ public class Quest {
     public Quest(String name, String description){
         questName = name;
         questDescription = description;
-    }
+   /* der mangler noget og vil lige teste, håber at det er okay at jeg udkommenterer}
     Quest q1 = new Quest("Destroy A Hostile Creature", "Find and destroy a HOSTILE creature!");
 protected void startQuestOne(Quest quest){
     isQuestCompleted = false;
     if
+
+    */
 }
 }
