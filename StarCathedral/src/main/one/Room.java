@@ -18,7 +18,8 @@ public class Room {
 
     private ArrayList<Item> items;
 
-
+// Tess - Connecting riddle with rooms
+    private Riddle riddle;
 
     public Room(String name, String description){
         this.name = name;
