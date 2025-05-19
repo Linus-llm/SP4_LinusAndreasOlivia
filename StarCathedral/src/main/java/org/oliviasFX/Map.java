@@ -28,7 +28,14 @@ public class Map {
         Room room13 = new Room("Stenbønnernes Hvælv", "Du træder ind i et rundt rum, hvor stenfigurer sidder i bøn. Deres munde er åbne, men tavse – og rummet genlyder af dine egne tanker i forvrænget ekko.");
         Room room14 = new Room("Tidens Kammer", "Ure i alle former og aldre dækker væggene, men ingen går rigtigt. Hver gang du blinker, har ét flyttet sig – og du fornemmer, tiden gør det samme.");
         Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.");
-
+        room1.addItem("A small red vial that restores a little health\t", "Small Health Potion\t");
+        room2.addItem("A larger, glowing potion for stronger healing\t", "Greater Health Potion\t");
+        room4.addItem("A roll of bandages to stop bleeding\t", "Bandage\t");
+        room6.addItem("A soothing tea made from forest herbs\t", "Herbal Tea\t");
+        room14.addItem("A mystical blue berry that restores energy\t", "Magic Berry\t");
+        room9.addItem("A fizzy drink that gives a short burst of strength\t", "Energy Drink\t");
+        room8.addItem("A full medical kit with everything you need\t", "First Aid Kit\t");
+        room12.addItem("A bottle of frozen water from a magical glacier. Refreshing and revitalizing.\t", "Iced Crystal Water");
         //create roomLists
         roomList1 = new ArrayList<>();// en ring/et lag af rum
         roomList1.add(room1);
