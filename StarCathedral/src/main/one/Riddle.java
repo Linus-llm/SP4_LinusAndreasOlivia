@@ -1,4 +1,4 @@
-package one;
+package main.one;
 import java.util.ArrayList;
 
 public class Riddle {
