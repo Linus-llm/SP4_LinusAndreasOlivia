@@ -2,6 +2,8 @@
 package main.one;
 
 import java.util.ArrayList;
+// Tess - importing riddle to connect with rooms
+import main.one.Riddle;
 
 public class Room {
 
