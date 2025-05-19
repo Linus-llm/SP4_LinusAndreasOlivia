@@ -79,5 +79,6 @@ public ArrayList getActionOptions(){
 public int getCreatureHealth(){
     return creatureHealth;
 }
+//creatureHealth:
 }
 
