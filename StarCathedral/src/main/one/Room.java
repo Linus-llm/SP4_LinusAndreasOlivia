@@ -104,6 +104,8 @@ public class Room {
     public Item removeItem(String itemName) {
         Item itemToBeRemoved = findItem(itemName);
         if (itemToBeRemoved != null) {
+            // Tess - mangler det her lige under?
+            items.remove(itemToBeRemoved);
             return itemToBeRemoved;
 
 
