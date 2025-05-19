@@ -41,6 +41,12 @@ public class Room {
         return riddle;
     }
 
+    public String presentRiddle(){
+        if (riddle != null) {
+            return riddle.getCurrentRiddle();
+        }
+        return null;
+    }
 
     public Room getUpstairsRoom(){
 
