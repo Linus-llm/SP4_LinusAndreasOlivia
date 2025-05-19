@@ -121,6 +121,10 @@ public class Room {
     public void setRiddle(Riddle r) {
         this.riddle = r;
     }
+
+    public void setRiddleToNull(){
+        this.riddle = null;
+    }
     public Riddle getRiddle() {
         return riddle;
     }

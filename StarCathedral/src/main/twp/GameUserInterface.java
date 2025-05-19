@@ -49,7 +49,7 @@ public class GameUserInterface {
 
 
         if (!creatures.isEmpty()){
-        System.out.print("Items in the room: ");
+        System.out.print("Disse kreaturer er i rummet: ");
         for (Creature creature: creatures) {
             System.out.print(creature.displayCreature() + " ");
         }
@@ -57,16 +57,16 @@ public class GameUserInterface {
     }
 
     public void printWelcome() {
-        System.out.println("Velkommen til Stjernepræsternes stjernekatedral!");
-        System.out.println("Tast HJÆLP eller INFO for instrukser til at bevæge dig");
+        System.out.println("Velkommen til Stjernepræsternes stjernekatedral!\n");
+        System.out.println("Tast HJÆLP eller INFO for instrukser\n");
         System.out.println("I en svunden æra, før landene blev adskilt af kongedømmer og krige, styrede Stjernepræsterne over et folk, der lyttede til himlen.\n" +
-                " De byggede en enorm, stenkold katedral dybt under jorden – ikke for at tilbede guder, men for at forstå stjernernes stemmer.\n" +
-                " Det siges, at rummet og tidens mønstre blev mejslet i væggene og ændrede sig efter himlens bevægelser.\n" +
+                "De byggede en enorm, stenkold katedral dybt under jorden – ikke for at tilbede guder, men for at forstå stjernernes stemmer.\n" +
+                "Det siges, at rummet og tidens mønstre blev mejslet i væggene og ændrede sig efter himlens bevægelser.\n" +
                 "En dag forsvandt præsterne. Uden varsel. Katedralen blev forseglet, og i århundreder blev den glemt.\n" +
-                "Men stjernerne er begyndt at bevæge sig forkert. Kometer kredser mod Jorden i omvendte baner. Mennesker drømmer om en stemme, der hvisker:\n" +
+                "Men stjernerne er begyndt at bevæge sig forkert. Kometer kredser mod Jorden i omvendte baner.\nMennesker drømmer om en stemme, der hvisker:\n" +
                 "“Tænd lyset. Syv flammer for at vække balancen.”\n" +
                 "Du er én af de få, der mærker kaldet. Legender siger, at syv stjerner blev tændt i katedralen for at holde kaos i skak. Nu er de slukket.\n" +
-                "Du stiger ned i mørket, alene, kun med din viden og dit mod, for at finde og tænde de syv stjernelys igen — og måske forstå, hvad der skete med præsterne… og hvorfor de aldrig vendte tilbage.\n");
+                "Du stiger ned i mørket, alene, kun med din viden og dit mod, for at finde og tænde de syv stjernelys igen\n— og måske forstå, hvad der skete med præsterne… og hvorfor de aldrig vendte tilbage.\n");
         System.out.println("Tænd de syv lys i rummene og få adgang til de sidste rum");
     }
 
@@ -74,14 +74,15 @@ public class GameUserInterface {
         System.out.println("""
                 Instruktioner
                 ------------
-                Skriv kommando'en efterfulgt med enter. Store eller små bogstaver betyder ikke noget
-                These are the instructions recognized:
+                Skriv kommandoen efterfulgt med enter. Store eller små bogstaver betyder ikke noget
+                Disse kommandoer virker i spillet:
                  Hjælp  eller INFO, viser dette tip
                  Gå     Efterfulgt af hvilken retning du vil gå: Fremad, baglæns, Op, Ned hvis det er muligt
                         Eller du kan bare skrive en retning eller det ene bogstav på retningen du vil gå
                  Kig    Du kigger dig omkring og får beskrevet hvad du kan se
                  Tag    Efterfulgt af navnet på item'et, for at samle det op
-                 EXIT   Slutter spillet
+                 Exit   Slutter spillet
+                 Use    Bruger det item du har i dit inventory
                 """);
     }
 

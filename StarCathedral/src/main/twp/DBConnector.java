@@ -10,66 +10,27 @@ public class DBConnector {
     public void connect(String url){
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("connection establsihed");
         } catch (SQLException e) {
             System.out.println("Connection failed: " + e.getMessage());
 
         }
     }
 
-    public void selectPlayers(){
-        String sql = "SELECT * FROM Players";
-        try {
-            Statement stat = conn.createStatement();
 
-            ResultSet rs = stat.executeQuery(sql);
-
-            while(rs.next()){
-                String name = rs.getString("name");
-
-                System.out.println(name);
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    public void getBalanceOfPlayers(String name){
-        String sql = "SELECT balance FROM Players Where name = '" + name+"'";
-        try{
-            Statement stat = conn.createStatement();
-            ResultSet rs = stat.executeQuery(sql);
-            int balance =  rs.getInt("balance");
-            System.out.println(name + " , saldo: " + balance);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-
-    }
-    public void insertUserInfoToDatabase(String username, String password){
-
-        String sql = "INSERT INTO Users (username,password) VALUES ('"+username+"',"+password+")";
-        try {
-            Statement stat = conn.createStatement();
-            stat.execute(sql);
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-
-        }
-    }
     public void checkIfUsernameExistsAndPutIntoDB(String username, String password){
         String sql = "SElECT COUNT(*) FROM Users WHERE username = '"+username+ "'";
+        Statement stat = null;
+        Statement stat1 = null;
+        ResultSet rs = null;
         try {
-            Statement stat = conn.createStatement();
-            ResultSet rs = stat.executeQuery(sql);
+            stat = conn.createStatement();
+            rs = stat.executeQuery(sql);
             if(rs.next()){
                 count = rs.getInt(1);
             }
             if(count<1){
                 String sql1 = "INSERT INTO Users (username, Password) VALUES('"+username+"','"+password+"')";
-                Statement stat1 = conn.createStatement();
+                stat1 = conn.createStatement();
                 stat1.execute(sql1);
             } else{
                 username = ui.promptText("Username eksisterer allerede prøv igen: ");
@@ -79,16 +40,29 @@ public class DBConnector {
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }
+        finally {
+            // close in reverse order
+            try {
+                if (rs != null) rs.close();
+                if (stat != null) stat.close();
+                if (stat1 != null) stat.close();
+            } catch (SQLException e) {
+                System.out.println("Error closing resources: " + e.getMessage());
+            }
+        }
 
     }
     public void checkIfCredentialsMatch(String username, String password){
         String sql = "SELECT * FROM Users WHERE username = '" + username + "' AND password = '" + password + "'";
+        Statement stat = null;
+        ResultSet rs = null;
        try{
-        Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(sql);
+        stat = conn.createStatement();
+        rs = stat.executeQuery(sql);
 
         if (rs.next()) {
             System.out.println("Du er logget ind!");
+            System.out.println(" ");
         } else {
             username = ui.promptText("Fejl, tast username igen: ");
             password = ui.promptText("Tast password'et igen: ");
@@ -96,19 +70,37 @@ public class DBConnector {
         }
        }catch (SQLException e) {
            System.out.println(e.getMessage());
+       }finally {
+           // close in reverse order
+           try {
+               if (rs != null) rs.close();
+               if (stat != null) stat.close();
+
+           } catch (SQLException e) {
+               System.out.println("Error closing resources: " + e.getMessage());
+           }
        }
     }
     public void saveHighscore(String username, long timeInSeconds){
         String sql = "SELECT Highscore FROM Users WHERE username = '"+ username +"'";
+        ResultSet rs = null;
+        Statement stat = null;
+        Statement stat1 = null;
+        Statement stat2 = null;
         try{
-            Statement stat = conn.createStatement();
-            ResultSet rs = stat.executeQuery(sql);
+            stat = conn.createStatement();
+            rs = stat.executeQuery(sql);
             if (rs.next()){
                 long existingTime = rs.getLong("Highscore");
 
-                if(timeInSeconds<existingTime){
+                if (rs.wasNull()) {
+                    String sql3 = "UPDATE Users SET Highscore = '" + timeInSeconds + "' WHERE username = '" + username + "'";
+                    stat1 = conn.createStatement();
+                    stat1.executeUpdate(sql3);
+                    System.out.println("First highscore set!");
+                }else if(timeInSeconds<existingTime){
                     String sql1 = "UPDATE Users SET Highscore = '"+ timeInSeconds +"' WHERE username = '"+ username +"'";
-                    Statement stat1 = conn.createStatement();
+                    stat1 = conn.createStatement();
                     stat1.executeUpdate(sql1);
                     System.out.println("New highscore!");
                 }else {
@@ -117,13 +109,23 @@ public class DBConnector {
 
         } else {
                 String sql2 = "INSERT INTO Users (username, Highscore) VALUES('"+username+"','"+timeInSeconds+"')";
-                Statement stat2 = conn.createStatement();
+                stat2 = conn.createStatement();
                 stat2.execute(sql2);
                 System.out.println("New highscore saved");
             }
 
             }catch (SQLException e){
             System.out.println(e.getMessage());
+        }finally {
+            // close in reverse order
+            try {
+                if (rs != null) rs.close();
+                if (stat != null) stat.close();
+                if (stat1 != null) stat1.close();
+                if (stat2 != null) stat2.close();
+            } catch (SQLException e) {
+                System.out.println("Error closing resources: " + e.getMessage());
+            }
         }
     }
 

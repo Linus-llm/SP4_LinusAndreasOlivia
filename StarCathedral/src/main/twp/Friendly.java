@@ -8,7 +8,6 @@ public class Friendly implements Creature {
     String creatureDescription;
     String creatureMsg;
     int creatureHealth = 1;
-    Game g = new Game();
 
     ArrayList<String> actionOptions;
 
@@ -44,10 +43,10 @@ public class Friendly implements Creature {
     }
 
     @Override
-    public void proccessAndRewardAction(){
-        System.out.print("tryk 1 for offesiv/deffensiv handling eller 2 for venlig handling");
+    public void proccessAndRewardAction(Game g, Player player) {
+        System.out.print("tryk 1 for offensiv/defensiv handling eller 2 for venlig handling\n");
         int option = scanner.nextInt();
-        switch(option){
+        switch (option) {
             case 1: //offensiv-deffensiv option
                 //tilfoej daarlig karma
                 ////remove creature from roomList
@@ -58,10 +57,12 @@ public class Friendly implements Creature {
                 // tilfoej god karma
                 //evt tilfoej item?
                 System.out.println(creatureName + " giver dig et venligt blik og giver dig en quest...");
-                g.setCurrentQuest(new Quest("Nå til rummet","Gå til det korrekte rum på anden sal, for at gennemføre quest'en"));
-                break;
+
+                    g.setCurrentQuest(new Quest("Nå til rummet", "Gå til det korrekte rum på anden sal, for at gennemføre quest'en"));
+                    System.out.println(g.getCurrentQuestNameAndDescription());
+                    break;
+                }
         }
-    }
 
     public String getCreatureName(){
         return creatureName;

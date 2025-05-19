@@ -13,10 +13,12 @@ public class Map {
     private Room startRoom;
     private ArrayList<Riddle> riddleList;
 
+
+
     public void buildMap(){
         //create roomss
         Room room1 = new Room("Refleksionshallen", "Det spejllignende gulv kaster dit billede tilbage i forvrænget form, og tavse statuer i hættekapper stirrer uden øjne. En stemning af dom og erkendelse hviler i luften.",false);
-        room1.addItem("warm and blood red substance in a veil","healing potion");
+        room1.addItem("warm and blood red substance in a veil, it's a potion","potion");
         Room room2 = new Room("Arkivarens Gravkammer", "En marmorfigur hviler med hænderne på et forsejlet skrift. Dens læber er halvt åbne, som om den døde stadig prøver at hviske noget, du burde vide.",false);
         Room room3 = new Room("Offerkammeret", "Midt i rummet står et kar med stivnet blod og stjerner ristet i sten. Noget venter på, at du giver mere end din tilstedeværelse.",false);
         Room room4 = new Room("Det Uskrevne Værelse", "Væggene her er tomme og lyddøde, men du føler, noget blev slettet. Et skrivebord i midten bæver svagt, som om det ikke kan beslutte, hvad det engang bar.",false);
@@ -30,7 +32,7 @@ public class Map {
         Room room12 =  new Room("Rummet med Vævet Lys", "Lysstråler hænger i luften som tråde. Du må bevæge dig langsomt, ellers risikerer du at flænse vævet – og med det, måske også noget i dig selv.",false);
         Room room13 = new Room("Stenbønnernes Hvælv", "Du træder ind i et rundt rum, hvor stenfigurer sidder i bøn. Deres munde er åbne, men tavse – og rummet genlyder af dine egne tanker i forvrænget ekko.",false);
         Room room14 = new Room("Tidens Kammer", "Ure i alle former og aldre dækker væggene, men ingen går rigtigt. Hver gang du blinker, har ét flyttet sig – og du fornemmer, tiden gør det samme.",false);
-        Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.",false);
+        Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.",true);
 
         Hostile creature1 = new Hostile(
                 "Astralfødte",
@@ -142,21 +144,12 @@ public class Map {
         riddleList.add(new Riddle("The more you take away from me, the bigger I get. What am I?", "a hole", "_ H__E", "Digging this one might help."));
         riddleList.add(new Riddle("I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?", "an echo", "A _  E _ _ O", "Sound bouncing off the walls!"));
         riddleList.add(new Riddle("What has to be broken before you can use it?", "an egg", "N _G", "Crack one for breakfast."));
-        riddleList.add(new Riddle("I’m tall when I’m young and short when I’m old. What am I?", "_ _A___E", "_ H__E", "It melts but gives light."));
+        riddleList.add(new Riddle("I’m tall when I’m young and short when I’m old. What am I?", "a candle", "_ _A___E", "It melts but gives light."));
         riddleList.add(new Riddle("What can run but never walks, has a bed but never sleeps, has a mouth but never talks?", "a river", "A  R _ _ _ _", "It flows endlessly."));
         riddleList.add(new Riddle("What has hands but can’t clap?", "a clock", "A  C _ _ _ K", "It tells time."));
         riddleList.add(new Riddle("What has many keys but can’t open a single lock?", "a piano", "A  P _ _ _ O", "It makes music."));
 
-        List<Room> allRooms = new ArrayList<>();
-        allRooms.addAll(roomList1);
-        allRooms.addAll(roomList2);
-        allRooms.addAll(roomList3);
 
-        Collections.shuffle(allRooms); // Gør rækkefølgen tilfældig
-
-        for (int i = 0; i < 7; i++) { // Vælg fx 7 rum
-            allRooms.get(i).setRiddle(riddleList.get(i));
-        }
 
         /*riddleList.add(new Riddle("The more you take away from me, the bigger I get. What am I?", "a hole", "_ H__E", "Digging this one might help."));
         riddleList.add(new Riddle("The more you take away from me, the bigger I get. What am I?", "a hole", "_ H__E", "Digging this one might help."));
@@ -188,6 +181,17 @@ public class Map {
         roomList3.add(room13);
         roomList3.add(room14);
         roomList3.add(room15);
+
+        List<Room> allRooms = new ArrayList<>();
+        allRooms.addAll(roomList1);
+        allRooms.addAll(roomList2);
+        allRooms.addAll(roomList3);
+
+        Collections.shuffle(allRooms); // Gør rækkefølgen tilfældig
+
+        for (int i = 0; i < 7; i++) { // Vælg fx 7 rum
+            allRooms.get(i).setRiddle(riddleList.get(i));
+        }
 
         roomList3.get(4).setIsLockedFalse();
 

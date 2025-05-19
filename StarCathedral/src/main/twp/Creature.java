@@ -14,5 +14,5 @@ public interface Creature {
 
     public void displayActionOptions();
 
-    public void proccessAndRewardAction();
+    public void proccessAndRewardAction(Game g,Player player);
 }

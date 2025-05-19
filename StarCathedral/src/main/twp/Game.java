@@ -63,8 +63,6 @@ public class Game {
                 case "farvel":
                     runningGame = false;
                     gui.printMessage("Tak for at have spillet!");
-                    time.showTime(startTime - timeReward);
-                    db.saveHighscore(login.getName(),time.getSeconds());
                     break;
                 case "gå":
                     if(!getCurrentRoom().getIsLocked()){
@@ -73,51 +71,56 @@ public class Game {
                         if(!getCurrentRoom().getCreatures().isEmpty()){
                             getCurrentRoom().getCreatures().getFirst().displayCreature();
                             getCurrentRoom().getCreatures().getFirst().displayActionOptions();
-                            getCurrentRoom().getCreatures().getFirst().proccessAndRewardAction();
+                            getCurrentRoom().getCreatures().getFirst().proccessAndRewardAction(this,player);
                             if(player.getHealth()<1){
                                 runningGame=false;
-                                ui.displayMessage("Du blev ramt af"+getCurrentRoom().getCreatures().getFirst().getCreatureName()+" og led en grusom død");
+                                ui.displayMessage("Du blev ramt af "+getCurrentRoom().getCreatures().getFirst().getCreatureName()+" og led en grusom død");
+                                break;
                             }
                         }
                         if(getCurrentRoom().getRiddle() != null){
-                            boolean answerBool = getCurrentRoom().getRiddle().displayRiddle();
-                            if (answerBool){
-                                ui.displayMessage("Du har tændt et lys du er oppe på: "+ Riddle.getRiddleSolvedCounter() +"/7");
-                            }
+                            getCurrentRoom().getRiddle().displayRiddle();
+                            getCurrentRoom().setRiddleToNull();
                         }
                         if(Riddle.getRiddleSolvedCounter()==7){
                             ui.displayMessage("Du har nu adgang til det sidste rum");
                             map.getFinalLockedRoom().setIsLockedFalse();
                         }
-                    } else if(getCurrentRoom() == map.getFinalLockedRoom()){
-                        runningGame = false;
-                        ui.displayMessage("Du tænder den sidste flamme. Et øjeblik sker der ingenting.\n" +
-                                "Så begynder katedralen at vibrere svagt, som om selve stenene trækker vejret. De seks flammer løfter sig – en efter en – fra deres fade og svæver op mod kuplen højt over dig. Du hører stemmen igen. Ikke én, men mange, hviskende i stjernernes sprog.\n" +
-                                "“Syv flammer. Syv prøver. Én vilje.”\n" +
-                                "Midt i rummet åbner gulvet sig, men ikke med larm – det glider væk som tåge. En trappe i stjernesten viser sig. Du går ned. Under katedralen er der ikke mørke – men lys. Et rum bygget af tid og tanke, hvor stjernekortet over hele universet er ætset i væggene.\n" +
-                                "I midten: En skikkelse. Hætteklædt. Ubevægelig.\n" +
-                                "“Du har bragt os tilbage.”\n" +
-                                "Skikkelsen hæver hovedet. Det er dig selv.\n" +
-                                "Men ældre. Eller yngre. Eller uden alder. En version af dig, du kunne være blevet. Eller måske allerede er.\n" +
-                                "“Vi ventede. Og du tændte lyset igen. Nu kan stierne åbnes – ikke kun i denne katedral, men i hele himlens labyrint.”\n" +
-                                "Du rækker hånden ud. Skikkelsen rører ved dig\n + " +
-                                "Katedralen begynder at løfte sig. Ikke styrte sammen – men stige. Du står i centrum, mens hele rummet bliver til himmel.");
-                        time.showTime(startTime - timeReward);
-                        db.saveHighscore(login.getName(),time.getSeconds());
+                        if(getCurrentRoom().getName().equals(map.getFinalLockedRoom().getName())&&!map.getFinalLockedRoom().getIsLocked()) {
+                            runningGame = false;
+                            ui.displayMessage("Du tænder den sidste flamme. Et øjeblik sker der ingenting.\n" +
+                                    "Så begynder katedralen at vibrere svagt, som om selve stenene trækker vejret. De seks flammer løfter sig – en efter en – fra deres fade og svæver op mod kuplen højt over dig. Du hører stemmen igen. Ikke én, men mange, hviskende i stjernernes sprog.\n" +
+                                    "“Syv flammer. Syv prøver. Én vilje.”\n" +
+                                    "Midt i rummet åbner gulvet sig, men ikke med larm – det glider væk som tåge. En trappe i stjernesten viser sig. Du går ned. Under katedralen er der ikke mørke – men lys. Et rum bygget af tid og tanke, hvor stjernekortet over hele universet er ætset i væggene.\n" +
+                                    "I midten: En skikkelse. Hætteklædt. Ubevægelig.\n" +
+                                    "“Du har bragt os tilbage.”\n" +
+                                    "Skikkelsen hæver hovedet. Det er dig selv.\n" +
+                                    "Men ældre. Eller yngre. Eller uden alder. En version af dig, du kunne være blevet. Eller måske allerede er.\n" +
+                                    "“Vi ventede. Og du tændte lyset igen. Nu kan stierne åbnes – ikke kun i denne katedral, men i hele himlens labyrint.”\n" +
+                                    "Du rækker hånden ud. Skikkelsen rører ved dig\n + " +
+                                    "Katedralen begynder at løfte sig. Ikke styrte sammen – men stige. Du står i centrum, mens hele rummet bliver til himmel.");
+                            time.showTime(startTime - timeReward);
+                            db.saveHighscore(login.getName(), time.getSeconds());
+                        }
+
                     }
+
+
 
                     break;
                 case "tag":
                     if (player.getItem(secondWord)) {
                         gui.printMessage("Du har taget " + secondWord);
                     } else {
-                        gui.printMessage("There is nothing like " + secondWord + " to take around here.");
+                        gui.printMessage("Du kan ikke samle " + secondWord + " op");
                     }
                     break;
                 case "use":
                     player.useItem();
+                    break;
                 default:
                     gui.printMessage("Jeg forstår ikke kommandoen");
+
 
             }
 
@@ -135,14 +138,19 @@ public class Game {
         else {
             System.out.println("Du kan ikke gå den vej");
         }
-        timeReward = quest.checkCompletion(player,targetRoom);
+        try {
+            if(!quest.getIsQuestCompleted()&&quest != null) {
+                timeReward = quest.checkCompletion(player, targetRoom);
+
+            }
+        } catch (NullPointerException _){
+        }
 
 
     }
 
     private Direction parseCommand(String word) {
         Direction requestedDirection = null;
-
         switch(word){
             case "f", "fremad":
                 requestedDirection = Direction.Forward;
@@ -176,5 +184,9 @@ public class Game {
     public void setCurrentQuest(Quest quest){
         this.quest = quest;
     }
+    public String getCurrentQuestNameAndDescription(){
+        return quest.getQuestNameAndDescription();
+    }
+
 
 }

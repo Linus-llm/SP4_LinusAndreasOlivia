@@ -10,7 +10,7 @@ public class Quest {
         isQuestCompleted = false;
     }
    public long checkCompletion(Player player, Room targetRoom){
-        if(player.getCurrentRoom()== targetRoom){
+        if(player.getCurrentRoom() == targetRoom){
             isQuestCompleted = true;
             System.out.println("Quest'en er færdig: " + questName);
             return -5000;
@@ -19,6 +19,14 @@ public class Quest {
             System.out.println("Quest'en er ikke klaret, forsæt din søgning!");
             return 0;
         }
+   }
+
+   public String getQuestNameAndDescription(){
+        return questName+" "+questDescription;
+   }
+   public boolean getIsQuestCompleted(){
+        return isQuestCompleted;
+
    }
 
 }

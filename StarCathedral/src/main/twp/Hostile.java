@@ -7,7 +7,6 @@ public class Hostile implements Creature {
     String creatureName;
     String creatureDescription;
     int creatureDamage = 1;
-    Game g = new Game();
     int creatureHealth = 1;
     String creatureMsg;
     Player player = new Player();
@@ -40,7 +39,7 @@ public class Hostile implements Creature {
 
     @Override
     public String displayCreature() {
-        return getCreatureDescription();
+        return getCreatureDescription() + " og det/de hedder " + getCreatureName();
     }
 
     @Override
@@ -52,21 +51,22 @@ public class Hostile implements Creature {
     }
 
     @Override
-    public void proccessAndRewardAction() {
-        System.out.print("tryk 1 for offesiv/deffensiv handling eller 2 for venlig handling");
-        int option = scanner.nextInt();
-        switch (option) {
-            case 1: //offensiv-deffensiv option
-                //remove creature from roomList
+    public void proccessAndRewardAction(Game g, Player player) {
+        while (true) {
+            System.out.print("Tryk 1 for offensiv/deffensiv handling eller 2 for venlig handling: ");
+            String input = scanner.nextLine();
+
+            if (input.equals("1")) {
                 g.getCurrentRoom().getCreatures().remove(0);
                 System.out.println(creatureName + " er forsvundet fra rummet..");
                 break;
-            case 2: //venligsindet option
-                //playerHealth -1;
+            } else if (input.equals("2")) {
                 player.decreaseHealth(1);
-                System.out.println("du mistede et liv");
-
+                System.out.println("Du mistede et liv");
                 break;
+            } else {
+                System.out.println("Ugyldigt valg. Skriv venligst 1 eller 2.");
+            }
         }
     }
 

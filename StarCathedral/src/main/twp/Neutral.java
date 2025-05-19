@@ -9,7 +9,7 @@ public class Neutral implements Creature {
     int creatureDamage = 1;
     int creatureHealth = 1;
     String creatureMsg;
-    Game g = new Game();
+
 
     ArrayList<String> actionOptions;
 
@@ -45,7 +45,7 @@ public class Neutral implements Creature {
     }
 
     @Override
-    public void proccessAndRewardAction(){
+    public void proccessAndRewardAction(Game g, Player player){
         System.out.print("tryk 1 for offesiv/deffensiv handling eller 2 for venlig handling");
         int option = scanner.nextInt();
         switch(option){

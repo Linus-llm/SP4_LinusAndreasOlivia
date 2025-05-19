@@ -68,7 +68,6 @@ public class Player {
         if (pickupFromRoom != null) {
 
             inventory.add(pickupFromRoom);
-            System.out.println("you picked up the item");
             return true;
         }
         return false;
@@ -98,12 +97,13 @@ public class Player {
         }
         System.out.println("Dine items:");
         for (int i = 0; i < inventory.size(); i++) {
-            System.out.println((i + 1) + ": " + inventory.get(i).getItemName());
+            System.out.println((i + 1) + ". " + inventory.get(i).getItemName());
         }
         Scanner scan = new Scanner(System.in);
-        System.out.print("Vælg tallet på det item du vil benytte: ");
+        System.out.print("Vælg tallet på det item du vil benytte: \n");
 
         int choice = scan.nextInt() - 1;
+        scan.nextLine();
         if (choice >= 0 && choice < inventory.size()) {
             Item selectedItem = inventory.get(choice);
 
