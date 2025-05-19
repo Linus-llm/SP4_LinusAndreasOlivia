@@ -56,7 +56,10 @@ public class Riddle {
         hintList.add("A  P _ _ _ O");
         extraHintList.add("It makes music.");
 
-    protected void processAnswer(){}
+        riddleList.add("I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?");
+        answerList.add("a map");
+        hintList.add("A   M _ _");
+        extraHintList.add("You use it to find your way.");
 
     protected Riddle getRiddle(){
         return this;
