@@ -25,6 +25,20 @@ public class Room {
         this.name = name;
         this.description = description;
         items = new ArrayList<>();
+        // Tess - intitialicing riddle to null
+        riddle = null;
+    }
+
+    // Tess - method for assigning a riddle to this room associating the room and riddle
+
+    public void setRiddle(Riddle riddle){
+        this.riddle = riddle;
+    }
+
+    // Tess - method for retrieving the riddle from this room, retrieves the ass. riddle to this room or null
+
+    public Riddle getRiddle(){
+        return riddle;
     }
 
 
