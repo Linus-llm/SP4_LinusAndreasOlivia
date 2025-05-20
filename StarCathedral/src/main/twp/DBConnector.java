@@ -11,7 +11,7 @@ public class DBConnector {
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
-            System.out.println("Connection failed: " + e.getMessage());
+            System.out.println("Connection fejlet: " + e.getMessage());
 
         }
     }
@@ -47,7 +47,7 @@ public class DBConnector {
                 if (stat != null) stat.close();
                 if (stat1 != null) stat.close();
             } catch (SQLException e) {
-                System.out.println("Error closing resources: " + e.getMessage());
+                System.out.println("Fejl slutter: " + e.getMessage());
             }
         }
 
@@ -77,7 +77,7 @@ public class DBConnector {
                if (stat != null) stat.close();
 
            } catch (SQLException e) {
-               System.out.println("Error closing resources: " + e.getMessage());
+               System.out.println("Fejl slutter: " + e.getMessage());
            }
        }
     }
@@ -97,21 +97,21 @@ public class DBConnector {
                     String sql3 = "UPDATE Users SET Highscore = '" + timeInSeconds + "' WHERE username = '" + username + "'";
                     stat1 = conn.createStatement();
                     stat1.executeUpdate(sql3);
-                    System.out.println("First highscore set!");
+                    System.out.println("Første highscore!");
                 }else if(timeInSeconds<existingTime){
                     String sql1 = "UPDATE Users SET Highscore = '"+ timeInSeconds +"' WHERE username = '"+ username +"'";
                     stat1 = conn.createStatement();
                     stat1.executeUpdate(sql1);
-                    System.out.println("New highscore!");
+                    System.out.println("Ny highscore!");
                 }else {
-                    System.out.println("No new highscore");
+                    System.out.println("Ingen ny highscore");
                 }
 
         } else {
                 String sql2 = "INSERT INTO Users (username, Highscore) VALUES('"+username+"','"+timeInSeconds+"')";
                 stat2 = conn.createStatement();
                 stat2.execute(sql2);
-                System.out.println("New highscore saved");
+                System.out.println("Ny highscore gemt");
             }
 
             }catch (SQLException e){
@@ -124,7 +124,7 @@ public class DBConnector {
                 if (stat1 != null) stat1.close();
                 if (stat2 != null) stat2.close();
             } catch (SQLException e) {
-                System.out.println("Error closing resources: " + e.getMessage());
+                System.out.println("Fejl slutter " + e.getMessage());
             }
         }
     }
