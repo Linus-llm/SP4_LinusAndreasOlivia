@@ -36,6 +36,9 @@ public class Map {
         room9.addItem("A fizzy drink that gives a short burst of strength\t", "Energy Drink\t");
         room8.addItem("A full medical kit with everything you need\t", "First Aid Kit\t");
         room12.addItem("A bottle of frozen water from a magical glacier. Refreshing and revitalizing.\t", "Iced Crystal Water");
+        room15.addItem("A tropical drink infused with sun-kissed fruit.\t", "Sunfruit Juice\t");
+        room7.addItem(" A blend of crushed herbs used by forest dwellers.\t", "Forest Remedy\t");
+        room3.addItem("A potion made from deep-sea seaweed. Salty but invigorating.\t", "Seaweed Elixir\t");
         //create roomLists
         roomList1 = new ArrayList<>();// en ring/et lag af rum
         roomList1.add(room1);
