@@ -145,15 +145,15 @@ class Consumables{
 }
 
 
-Timer*--Game
-LogIn*--Game
-Game*--Player
-
-Game*--Map
-Room*--Map
-Room*--Item
-Room*--Creature
-Room*-- Riddle
+Game *-- Timer
+Game *-- LogIn
+Game *-- Player
+Game *-- Map
+Player *-- Room
+Map *-- Room
+Room *-- Item
+Room *-- Creature
+Room *-- Riddle
 Creature<--Friendly
 Creature<--Neutral
 Creature<--Hostile
