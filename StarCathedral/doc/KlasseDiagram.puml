@@ -3,12 +3,12 @@
 'https://plantuml.com/class-diagram
 
 class LogIn {
-- String username
-- String password
-- TextUI ui
-- DBConnector db
-# void login()
-+ String getName()
+-String username
+-String password
+-TextUI ui
+-DBConnector db
+#void login()
++String getName()
 }
 class Riddle{
 -String riddleText
@@ -133,7 +133,7 @@ class Hostile
 abstract class Item{
 -String itemName
 -String itemDescription
-# String getItemName()
+#String getItemName()
 #String getItemDescription()
 #void monsterReward()
 }
@@ -154,7 +154,7 @@ Room*--Map
 Room*--Item
 Room*--Creature
 Room*-- Riddle
-Creature<--Friend
+Creature<--Friendly
 Creature<--Neutral
 Creature<--Hostile
 Creature *-- Quest
