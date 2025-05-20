@@ -1,8 +1,8 @@
 package twp;
 
 public class Game {
-    LogIn login = new LogIn();
-    DBConnector db = new DBConnector();
+    private LogIn login = new LogIn();
+    private DBConnector db = new DBConnector();
     private Timer time = new Timer();
     private long startTime;
     private Player player;

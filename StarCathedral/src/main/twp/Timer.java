@@ -1,9 +1,9 @@
 package twp;
 
 public class Timer {
-    long secondsDisplay;
-    long elapsedSeconds;
-    long elapsedMinutes;
+   protected long secondsDisplay;
+   protected long elapsedSeconds;
+   protected long elapsedMinutes;
 protected void showTime(long startTime){
 
 

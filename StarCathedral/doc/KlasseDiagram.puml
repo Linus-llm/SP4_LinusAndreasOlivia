@@ -11,55 +11,86 @@ class LogIn {
 + String getName()
 }
 class Riddle{
--String description
--ArrayList answerOptions
-#void processAnswer()
-#getRiddle()
+-String riddleText
+-String answer
+-String hint
+-String extraHint
+-TextUI ui
+-int riddleSolvedCounter
++Riddle()
++String getRiddleText()
++String getHint()
++String getExtraHint()
++boolean checkAnswer()
++void displayRiddle()
++int getRiddleSolvedCounter()
 }
 
 class Quest{
 -String questName
 -String questDescription
-#void startQuest()
+#boolean isQuestCompleted
++Quest()
++checkCompletion()
++String getQuestNameAndDescription()
++boolean getIsQuestCompleted()
 }
 
 class Timer{
+#long secondsDisplay
+#long elapsedSeconds
+#long elapsedMinutes
 #showTime()
++long getSeconds()
 }
 class Game{
+-LogIn login
+-DBConnector db
+-Timer time
+-long startTime
+-Player player
+-Map map
+-GameUserInterface gui
+-TextUI ui
+-Quest quest
+-Room targetRoom
+-long timeReward
 +Game()
-#startGame()
-#goCommand()
--parseCommand()
-#goDirection()
-#getCurrentRoom()
++void startGame()
++void goCommand()
+-Direction parseCommand()
++boolean goDirection()
++Room getCurrentRoom()
++Player getPlayer()
++void setCurrentQuest()
++String getCurrentQuestNameAndDescription()
+
 }
 class Player{
--String name
 -int health
 -ArrayList inventory
+-Room currentRoom
 +Player()
-#void getItem()
-#void dropItem()
-+boolean move()
 +Room getCurrentRoom()
 +void setCurrentRoom()
++boolean move()
+#boolean getItem()
 +List<Item> getInventory()
-+String getName()
-
++void decreaseHealth()
++int getHealth()
++void useItem()
 }
 
-
-class Inventory
 class Map {
--ArrayList mapRoomList
--ArrayList mapRoomList
--ArrayList mapRoomList
+-ArrayList roomList1
+-ArrayList roomList2
+-ArrayList roomList3
 -Room startRoom
-#void rotateRooms()
-#buildMap()
-#getStartRoom()
-
+-ArrayList<Riddle> riddleList
++buildMap()
++getStartRoom()
++Room fetchMissionRoom()
++Room getFinalLockedRoom()
 }
 class Room {
 -Room forwardRoom
@@ -106,14 +137,7 @@ abstract class Item{
 #String getItemDescription()
 #void monsterReward()
 }
-class Gear {
-- int dmgReductionNum
-- int damage
-# double dmgReductionCalc()
-}
-class QuestItem {
-#boolean isQuestComplete()
-}
+
 class Consumables{
 -int healingStrength
 # int healingCalc()
@@ -124,7 +148,7 @@ class Consumables{
 Timer*--Game
 LogIn*--Game
 Game*--Player
-Player*--Inventory
+
 Game*--Map
 Room*--Map
 Room*--Item
@@ -134,9 +158,8 @@ Creature<--Friend
 Creature<--Neutral
 Creature<--Hostile
 Creature *-- Quest
-Item<--Gear
 Item<--Consumables
-Item<--QuestItem
+
 
 
 

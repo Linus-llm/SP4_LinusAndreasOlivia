@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Map {
-
-    private ArrayList<Room> roomList; // en ring/et lag af rum
     private ArrayList<Room> roomList1;
     private ArrayList<Room> roomList2;
     private ArrayList<Room> roomList3;

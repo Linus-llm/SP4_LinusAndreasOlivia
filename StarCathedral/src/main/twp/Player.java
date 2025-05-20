@@ -5,10 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Player {
-    private String playerName;
     private int health = 3;
     private ArrayList<Item> inventory;
-    private int playerDamage;
     private Room currentRoom;
 
     public Player() {
@@ -71,19 +69,6 @@ public class Player {
             return true;
         }
         return false;
-    }
-
-    protected void dropItem() {
-        //should take item from inventory and drop it into the room
-
-    }
-
-    public String getName() {
-        return playerName;
-    }
-
-    public void setHealth(int newHealth) {
-        this.health = newHealth;
     }
 
     public int getHealth() {

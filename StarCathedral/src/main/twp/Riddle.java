@@ -8,8 +8,6 @@ public class Riddle {
     private TextUI ui = new TextUI();
     private static int riddleSolvedCounter = 0;
 
-    // Index of the current riddle
-    private int currentIndex = 0;
 
     public Riddle(String riddleText, String answer, String hint, String extraHint) {
         this.riddleText = riddleText;
@@ -20,9 +18,6 @@ public class Riddle {
 
     public String getRiddleText(){
         return riddleText;
-    }
-    public String getAnswer(){
-        return answer;
     }
     public String getHint(){
         return hint;
