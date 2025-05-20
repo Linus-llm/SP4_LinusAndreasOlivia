@@ -18,7 +18,7 @@ public class Map {
     public void buildMap(){
         //create roomss
         Room room1 = new Room("Refleksionshallen", "Det spejllignende gulv kaster dit billede tilbage i forvrænget form, og tavse statuer i hættekapper stirrer uden øjne. En stemning af dom og erkendelse hviler i luften.",false);
-        room1.addItem("warm and blood red substance in a veil, it's a potion","potion");
+        room1.addItem("En varm og frodig substans i potion form","potion");
         Room room2 = new Room("Arkivarens Gravkammer", "En marmorfigur hviler med hænderne på et forsejlet skrift. Dens læber er halvt åbne, som om den døde stadig prøver at hviske noget, du burde vide.",false);
         Room room3 = new Room("Offerkammeret", "Midt i rummet står et kar med stivnet blod og stjerner ristet i sten. Noget venter på, at du giver mere end din tilstedeværelse.",false);
         Room room4 = new Room("Det Uskrevne Værelse", "Væggene her er tomme og lyddøde, men du føler, noget blev slettet. Et skrivebord i midten bæver svagt, som om det ikke kan beslutte, hvad det engang bar.",false);
@@ -33,6 +33,12 @@ public class Map {
         Room room13 = new Room("Stenbønnernes Hvælv", "Du træder ind i et rundt rum, hvor stenfigurer sidder i bøn. Deres munde er åbne, men tavse – og rummet genlyder af dine egne tanker i forvrænget ekko.",false);
         Room room14 = new Room("Tidens Kammer", "Ure i alle former og aldre dækker væggene, men ingen går rigtigt. Hver gang du blinker, har ét flyttet sig – og du fornemmer, tiden gør det samme.",false);
         Room room15 = new Room("De Blinde Mosaikkers Rum", "Gulvet og væggene er dækket af mosaikker, men de forestiller intet genkendeligt. Når du bevæger dig, synes motiverne at ændre sig, som om rummet forsøger at aflæse dig.",true);
+
+        room2.addItem("En større og glødende rød potion", "potion");
+        room4.addItem("En lille men gylden potion", "potion");
+        room6.addItem("En lille flaske med en gylden te på potion form", "potion");
+        room3.addItem("A potion made from deep-sea seaweed. Salty but invigorating.", "potion");
+
 
         Hostile creature1 = new Hostile(
                 "Astralfødte",
